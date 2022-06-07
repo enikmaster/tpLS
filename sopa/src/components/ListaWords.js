@@ -9,7 +9,7 @@ function ListaWords(props) {
         <Card className="listaWords-container">
             <h3>Lista de Palavras</h3>
             
-            <h1>{title}</h1>
+            <h1>{props.title}</h1>
             <div>
                 {palavras.map((data, key) => {
                     return (
