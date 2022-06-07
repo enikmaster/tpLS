@@ -5,7 +5,9 @@
 @use '_sizes' as tam;
 @use 'sass:color';
 
-* {
+header,
+footer,
+div[class] {
     border: 1px solid rgb(255, 142, 13);
 }
 

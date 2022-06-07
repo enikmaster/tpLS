@@ -1,18 +1,29 @@
-import '../assets/css/listaWords.css';
+import React, { useState } from 'react';
+import Card from './Card';
+import './css/listaWords.css';
 import { palavras } from "../data";
 
-function ListaWords() {
+function ListaWords(props) {
+    const [title, setTitle] = useState(props.title);
+
+    const clickHandler = () => {
+        setTitle('Updated!');
+        console.log(title);
+    }
+
     return (
-        <div className="listaWords-container">
+        <Card className="listaWords-container">
             <h3>Lista de Palavras</h3>
-            <ul>
+            <button onClick={clickHandler}>Start Game</button>
+            <h1>{title}</h1>
+            <div>
                 {palavras.map((data, key) => {
                     return (
-                        <li key={key}>{data.value}</li>
+                        <Card className="word" key={key}> {data.value}</Card>
                     );
                 })}
-            </ul>
-        </div>
+            </div>
+        </Card>
     );
 }
 
