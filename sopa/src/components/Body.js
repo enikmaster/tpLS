@@ -1,4 +1,4 @@
-import '../assets/css/body.css'
+import './css/body.css';
 
 function Body() {
     

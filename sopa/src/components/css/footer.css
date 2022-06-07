@@ -7,11 +7,12 @@ footer {
     width: 90%;
   }
 }
-
 footer h3 {
   color: rgba(236, 216, 173, 0.7254901961);
 }
-
 footer div {
   color: #e2e2e2;
+}
+footer img {
+  height: 120px;
 }/*# sourceMappingURL=footer.css.map */

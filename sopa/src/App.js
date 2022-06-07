@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-//import {palavras} from './data';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Body from './components/Body';
 import Menu from './components/Menu';
+import Selector from './components/Selector';
 import ListaWords from './components/ListaWords';
 
 function App() {
@@ -27,6 +26,7 @@ function App() {
     */
     <div className="App">
     <Header />
+    <Selector />
     <Menu />
     <Body />
     <ListaWords />

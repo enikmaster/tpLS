@@ -1,4 +1,5 @@
-import '../assets/css/footer.css'
+import './css/footer.css';
+import logo from './img/logo.png';
 
 function Footer() {
     return (
@@ -9,7 +10,7 @@ function Footer() {
             <div>Lourenço McBride</div>
             <br></br>
             <div>ISEC 2021/22</div>
-            <img src="logo.png"></img> 
+            <img src={logo} alt="Logo do ISEC"></img> 
             
         </footer>
     );
