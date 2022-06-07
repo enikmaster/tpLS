@@ -18,6 +18,7 @@ const MenuInicial = () => {
             <h3> {menu} </h3>
             <button onClick={IniciaJogo} className="IniciaJogo editButt"> {inicio}</button>
             <button onClick={HighScore} className="HighScore editButt"  > {pontos}</button>
+            <div> s</div>
         </div >
 
     )
