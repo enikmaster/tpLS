@@ -1,9 +1,15 @@
-@use '_fonts' as font;
-@use '_colors' as cor;
-@use '_media' as media;
-@use '_sizes' as tam;
-@use 'sass:color';
+@use "_fonts" as font;
+@use "_colors" as cor;
+@use "_media" as media;
+@use "_sizes" as tam;
+@use "sass:color";
 
 header {
+    text-align: center;
     color: cor.$main;
+    border: 0px;
+    margin-top: 50px;
+    h1 {
+        border: 0px;
+    }
 }

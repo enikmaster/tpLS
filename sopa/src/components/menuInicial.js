@@ -1,17 +1,25 @@
-import './css/body.css'
+import './css/menu.css'
+import {useState} from 'react';
 
-function MenuInicial() {
+const MenuInicial = () => {
+
+    let menu = 'Menu';
+    let inicio = 'Iniciar Jogo';
+    let pontos = 'Ver Pontuações';
+
+    const IniciaJogo = () => {
+    }
+    const HighScore = () => {
+    }
+
     return (
-        <div>
-            <h3> Menu </h3>
-            <div className="MenuInicial">
-                <button className="IniciaJogo"> Iniciar Jogo</button>
-                <button className="HighScore"> Ver Pontuações</button>
 
-                
-            </div>
+        <div class="MenuInicial">
+            <h3> {menu} </h3>
+            <button onClick={IniciaJogo} className="IniciaJogo editButt"> {inicio}</button>
+            <button onClick={HighScore} className="HighScore editButt"  > {pontos}</button>
+        </div >
 
-        </div>
     )
 }
 

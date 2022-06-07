@@ -9,9 +9,12 @@ footer {
 }
 footer h3 {
   color: rgba(236, 216, 173, 0.7254901961);
+  border: 0px;
+  margin: 5px;
 }
 footer div {
   color: #e2e2e2;
+  border: 0em;
 }
 footer img {
   height: 120px;

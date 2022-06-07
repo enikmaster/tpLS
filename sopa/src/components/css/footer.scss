@@ -12,11 +12,14 @@ footer {
   }
   h3 {
     color: cor.$gold;
+    border: 0px;
+    margin: 5px;
   }
   div {
     color: cor.$light;
+    border: 0em;
   }
   img {
-      height: tam.$logo;
+    height: tam.$logo;
   }
 }

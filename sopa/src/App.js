@@ -4,6 +4,7 @@ import Body from './components/Body';
 import Menu from './components/Menu';
 import Selector from './components/Selector';
 import ListaWords from './components/ListaWords';
+import MenuInicial from './components/menuInicial';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
     <div className="App">
     <Header />
     <Selector />
+    <MenuInicial />
     <Menu />
     <Body />
     <ListaWords />
