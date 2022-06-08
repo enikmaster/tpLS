@@ -1,0 +1,53 @@
+@use "_fonts" as font;
+@use "_colors" as cor;
+@use "_media" as media;
+@use "_sizes" as tam;
+@use "sass:color";
+
+
+div.dificuldade {
+    color: cor.$dark;
+}
+
+.dropdown {
+    width: 170px;
+    margin: 10px auto;
+    align-items: center;
+    position: relative;
+    user-select: none;
+    color:black;
+}
+
+.dropdown .dropdown-btn {
+    border: 0;
+    padding: 15px 15px;
+    background: cor.$light;
+    box-shadow: 3px 3px 10px 6px cor.$dark;
+    font-weight: bold;
+
+    align-items: center ;
+    justify-content: space-between;
+}
+
+.dropdown .dropdown-content {
+    position: absolute;
+    top: 110%;
+    padding: 10px;
+    left: 0;
+    background: cor.$light;
+    box-shadow: 3px 3px 10px 6px cor.$dark;
+    font-weight: bold;
+    width: 95%;
+}
+
+.dropdown .dropdown-content .nivel {
+    border-style: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color:black;
+}
+
+.dropdown .dropdown-content .nivel:hover {
+    background: cor.$gold;
+} 

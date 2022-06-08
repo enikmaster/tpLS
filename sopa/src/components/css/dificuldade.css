@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;600&display=swap");
+div.dificuldade {
+  color: #313131;
+}
+
+.dropdown {
+  width: 170px;
+  margin: 10px auto;
+  align-items: center;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: black;
+}
+
+.dropdown .dropdown-btn {
+  border: 0;
+  padding: 15px 15px;
+  background: #e2e2e2;
+  box-shadow: 3px 3px 10px 6px #313131;
+  font-weight: bold;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown .dropdown-content {
+  position: absolute;
+  top: 110%;
+  padding: 10px;
+  left: 0;
+  background: #e2e2e2;
+  box-shadow: 3px 3px 10px 6px #313131;
+  font-weight: bold;
+  width: 95%;
+}
+
+.dropdown .dropdown-content .nivel {
+  border-style: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: black;
+}
+
+.dropdown .dropdown-content .nivel:hover {
+  background: rgba(236, 216, 173, 0.7254901961);
+}/*# sourceMappingURL=dificuldade.css.map */

@@ -5,8 +5,11 @@ import Menu from './components/Menu';
 import Selector from './components/Selector';
 import ListaWords from './components/ListaWords';
 import MenuInicial from './components/menuInicial';
+import Dificuldade from './components/Dificuldade';
+import { useState } from "react";
 
 function App() {
+  const [selected, setSelected] = useState("Dificuldade");
   return (
     /* 
     == Components ==
@@ -28,6 +31,7 @@ function App() {
     <div className="App">
     <Header />
     <Selector />
+    <Dificuldade selected={selected} setSelected={setSelected}/>
     <MenuInicial />
     <Menu />
     <Body />
