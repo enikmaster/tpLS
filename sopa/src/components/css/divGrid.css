@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;600&display=swap");
+.DivGrid {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  justify-content: center;
+}
+.DivGrid .inGrid {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  color: white;
+}/*# sourceMappingURL=divGrid.css.map */

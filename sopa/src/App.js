@@ -6,6 +6,7 @@ import Selector from './components/Selector';
 import ListaWords from './components/ListaWords';
 import MenuInicial from './components/menuInicial';
 import Dificuldade from './components/Dificuldade';
+import Jogar from './components/Jogar';
 import { useState } from "react";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
     <Dificuldade selected={selected} setSelected={setSelected}/>
     <MenuInicial />
     <Menu />
+    <Jogar />
     <Body />
     <ListaWords />
     <Footer />

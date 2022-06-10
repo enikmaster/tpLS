@@ -1,0 +1,18 @@
+@use '_fonts' as font;
+@use '_colors' as cor;
+@use '_media' as media;
+@use '_sizes' as tam;
+@use 'sass:color';
+
+.DivGrid{
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    justify-content: center;
+    .inGrid{
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        color: white;
+    }
+}
