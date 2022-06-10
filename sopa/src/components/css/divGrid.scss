@@ -1,18 +1,32 @@
-@use '_fonts' as font;
-@use '_colors' as cor;
-@use '_media' as media;
-@use '_sizes' as tam;
-@use 'sass:color';
+@use "_fonts" as font;
+@use "_colors" as cor;
+@use "_media" as media;
+@use "_sizes" as tam;
+@use "sass:color";
 
-.DivGrid{
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(10, 50px);
+.DivGrid10, .DivGrid15, .DivGrid20 {
+  color: white;
+  display: grid;
+  justify-content: center;
+  .inGrid {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    .inGrid{
-        text-align: center;
-        width: 50px;
-        height: 50px;
-        color: white;
-    }
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    color: white;
+    border-color: grey;
+  }
 }
+
+.DivGrid10{
+    grid-template-columns: repeat(10, 50px);
+}
+.DivGrid15{
+    grid-template-columns: repeat(15, 50px);
+}
+.DivGrid20{
+    grid-template-columns: repeat(20, 50px);
+}
+
