@@ -424,10 +424,24 @@ textarea {
   width: 100%;
 }
 
-header,
-footer,
-div[class] {
-  border: 1px solid rgb(255, 142, 13);
+#root {
+  width: 1440px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1224px) and (max-width: 1399px) {
+  #root {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 1223px) {
+  #root {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 699px) {
+  #root {
+    width: 90%;
+  }
 }
 
 html,

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;600&display=swap");
 .DivGrid10, .DivGrid15, .DivGrid20 {
-  color: white;
+  color: #e2e2e2;
   display: grid;
   justify-content: center;
 }
@@ -9,10 +9,13 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 50px;
   height: 50px;
-  color: white;
-  border-color: grey;
+  border: 1px solid rgba(236, 216, 173, 0.7254901961);
+}
+.DivGrid10 .inGrid:hover, .DivGrid15 .inGrid:hover, .DivGrid20 .inGrid:hover {
+  color: #313131;
+  background-color: #e2e2e2;
+  transition: all 0.3s ease-in-out;
 }
 
 .DivGrid10 {

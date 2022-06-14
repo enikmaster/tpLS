@@ -15,39 +15,34 @@ div.dificuldade {
     align-items: center;
     position: relative;
     user-select: none;
-    color:black;
+    color: cor.$dark;
+    .dropdown-btn {
+        border: 0;
+        padding: 15px 15px;
+        background: cor.$light;
+        box-shadow: 3px 3px 10px 6px cor.$dark;
+        font-weight: 600;
+        align-items: center ;
+        justify-content: space-between;
+    }
+    .dropdown-content {
+        position: absolute;
+        top: 110%;
+        padding: 10px;
+        left: 0;
+        background: cor.$light;
+        box-shadow: 3px 3px 10px 6px cor.$dark;
+        font-weight: 600;
+        width: 95%;
+        .nivel {
+            border-style: none;
+            padding: 10px;
+            cursor: pointer;
+            color: cor.$dark;
+            &:hover {
+                background: cor.$main;
+                transition: all 0.3s ease-in-out;
+            } 
+        }
+    }
 }
-
-.dropdown .dropdown-btn {
-    border: 0;
-    padding: 15px 15px;
-    background: cor.$light;
-    box-shadow: 3px 3px 10px 6px cor.$dark;
-    font-weight: bold;
-
-    align-items: center ;
-    justify-content: space-between;
-}
-
-.dropdown .dropdown-content {
-    position: absolute;
-    top: 110%;
-    padding: 10px;
-    left: 0;
-    background: cor.$light;
-    box-shadow: 3px 3px 10px 6px cor.$dark;
-    font-weight: bold;
-    width: 95%;
-}
-
-.dropdown .dropdown-content .nivel {
-    border-style: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    color:black;
-}
-
-.dropdown .dropdown-content .nivel:hover {
-    background: cor.$gold;
-} 

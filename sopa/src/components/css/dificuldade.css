@@ -12,19 +12,17 @@ div.dificuldade {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: black;
+  color: #313131;
 }
-
 .dropdown .dropdown-btn {
   border: 0;
   padding: 15px 15px;
   background: #e2e2e2;
   box-shadow: 3px 3px 10px 6px #313131;
-  font-weight: bold;
+  font-weight: 600;
   align-items: center;
   justify-content: space-between;
 }
-
 .dropdown .dropdown-content {
   position: absolute;
   top: 110%;
@@ -32,18 +30,16 @@ div.dificuldade {
   left: 0;
   background: #e2e2e2;
   box-shadow: 3px 3px 10px 6px #313131;
-  font-weight: bold;
+  font-weight: 600;
   width: 95%;
 }
-
 .dropdown .dropdown-content .nivel {
   border-style: none;
   padding: 10px;
   cursor: pointer;
-  transition: all 0.2s;
-  color: black;
+  color: #313131;
 }
-
 .dropdown .dropdown-content .nivel:hover {
-  background: rgba(236, 216, 173, 0.7254901961);
+  background: #65c6ec;
+  transition: all 0.3s ease-in-out;
 }/*# sourceMappingURL=dificuldade.css.map */
