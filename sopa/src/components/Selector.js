@@ -1,16 +1,22 @@
 //import './css/selector.css'
-import Card from './Card';
+//import Card from './Card';
+//
 
-const Selector = () => {
+
+function Selector(props) {
+    const {selectedLevel, onLevelChange} = props;
+  
     return (
-        <Card className="level-selector">
-            <select name="levels" id="leves">
-                <option value="1">Fácil</option>
-                <option value="2">Médio</option>
-                <option value="3">Difícil</option>
+        <div className="level-selector">
+            
+            <select onChange={onLevelChange} name="levels" id="leves">
+                
+                <option value="1">fácil</option>
+                <option value="2">intermedio</option>
+                <option value="3">dificil</option>
             </select>
-        </Card>
+        </div>
+        
     )
 }
-
 export default Selector;

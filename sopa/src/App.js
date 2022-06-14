@@ -11,6 +11,37 @@ import { useState } from "react";
 
 function App() {
   const [selected, setSelected] = useState("Dificuldade");
+  
+
+  
+  const [selectedLevel, setSelectedLevel] = useState("0");
+
+  const handleLevelChange = (event) => {
+    const { value } = event.currentTarget;
+    setSelectedLevel(value);
+  
+
+  let numOfCards;
+    switch (value) {
+      // Level: Beginner
+      case '1':
+        numOfCards = 3;
+        break;
+      // Level: Intermediate
+      case '2':
+        numOfCards = 6;
+        break;
+      // Level: Advanced
+      case '3':
+        numOfCards = 10;
+        break;
+      default:
+        numOfCards = 0;
+        break;
+    }
+    console.log({value});
+  }
+
   return (
     /* 
     == Components ==
@@ -31,11 +62,16 @@ function App() {
     */
     <div className="App">
     <Header />
-    <Selector />
+    <Selector 
+      selectedLevel = {setSelectedLevel}
+      onLevelChange = {handleLevelChange}
+      />
     <Dificuldade selected={selected} setSelected={setSelected}/>
     <MenuInicial />
     <Menu />
-    <Jogar />
+    <Jogar
+    selectedLevel = {setSelectedLevel}
+    />
     <Body />
     <ListaWords />
     <Footer />
@@ -44,3 +80,58 @@ function App() {
 }
 
 export default App;
+/*
+
+
+
+<select onChange={clickHandler} name="levels" id="leves">
+                
+   <option value="1">facil</option>
+   <option value="2">intermedio</option>
+   <option value="3">dificil</option>
+   </select>
+
+
+//timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log('This will run every second!');
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  let i=0;
+  let s;
+  const clickHandler = (e) => {
+    const { value } = e.currentTarget;
+    setSelectedLevel(value);
+
+    let numOfCards;
+    switch (value) {
+      // Level: Beginner
+      case '1':
+        numOfCards = 3;
+        for (i = 0; i < 3 * 3; i++) {
+          s.push(i);
+
+          {s.map((items)=>(
+            <div id = {items} className = "inGrid">
+               {items} </div>
+        ))}
+        }
+        break;
+      // Level: Intermediate
+      case '2':
+        numOfCards = 6;
+        break;
+      // Level: Advanced
+      case '3':
+        numOfCards = 10;
+        break;
+      default:
+        numOfCards = 0;
+        break;
+    }
+  }
+
+*/
