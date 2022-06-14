@@ -11,18 +11,18 @@ function Jogar(props) {
   let medio = 2;
   let dificil = 3;
   let s = [];
-  console.log("console log: " + selectedLevel.value)
-  if (selectedLevel === facil) {
+  console.log("jogar: " + selectedLevel.value)
+  if (selectedLevel.value == facil) {
     x = 10;
     gridN="DivGrid10";
   }
   
-  if (selectedLevel === medio) {
+  if (selectedLevel == medio) {
     x = 15;
     gridN="DivGrid15";
   }
   
-  if (selectedLevel === dificil) {
+  if (selectedLevel == dificil) {
     x = 20;
     gridN="DivGrid20";
   }
@@ -43,3 +43,21 @@ function Jogar(props) {
 }
 
 export default Jogar;
+let numOfCards;
+    switch (value) {
+      // Level: Beginner
+      case '1':
+        numOfCards = 3;
+        break;
+      // Level: Intermediate
+      case '2':
+        numOfCards = 6;
+        break;
+      // Level: Advanced
+      case '3':
+        numOfCards = 10;
+        break;
+      default:
+        numOfCards = 0;
+        break;
+    }

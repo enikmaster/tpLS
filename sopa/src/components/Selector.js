@@ -4,7 +4,7 @@
 
 
 function Selector(props) {
-    const {selectedLevel, onLevelChange} = props;
+    const {onLevelChange} = props;
   
     return (
         <div className="level-selector">
