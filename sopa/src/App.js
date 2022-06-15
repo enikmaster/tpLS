@@ -1,47 +1,76 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Body from './components/Body';
-import Menu from './components/Menu';
-import Selector from './components/Selector';
-import ListaWords from './components/ListaWords';
+// import Menu from './components/Menu';
+// import Selector from './components/Selector';
+// import ListaWords from './components/ListaWords';
 import MenuInicial from './components/menuInicial';
-import Dificuldade from './components/Dificuldade';
-import Jogar from './components/Jogar';
-import { useState } from "react";
+// import Dificuldade from './components/Dificuldade';
+// import Timer from './components/Timer';
+import './components/css/divGrid.css'
+//import Jogar from './components/Jogar';
+//import { useState } from "react";
 
 function App() {
-  const [selected, setSelected] = useState("Dificuldade");
+  /*const [selected, setSelected] = useState("Dificuldade");
   
 
-  
+  // Tirar o valor da select box e criar a grid baseada nesse valor.
   const [selectedLevel, setSelectedLevel] = useState("0");
 
   const handleLevelChange = (event) => {
-    const { value } = event.currentTarget;
+    const {value} = event.currentTarget;
     setSelectedLevel(value);
-  
 
-  let numOfCards;
-    switch (value) {
-      // Level: Beginner
-      case '1':
-        numOfCards = 3;
-        break;
-      // Level: Intermediate
-      case '2':
-        numOfCards = 6;
-        break;
-      // Level: Advanced
-      case '3':
-        numOfCards = 10;
-        break;
-      default:
-        numOfCards = 0;
-        break;
-    }
+    const test = (x) => {
+      for (i = 0; i < x * x; i++) {
+        s.push(i);
+      }
+      return(
+       <div className={gridN}>
+          {s.map((items)=>(
+              <div id = {items} className = "inGrid">
+                 {items} </div>
+          ))}
+      </div>
+    )
+    
+      }
+
     console.log({value});
+
+
+  let i = 0;
+  let x;
+  let gridN="";
+  let s = [];
+  console.log("value: " + value)
+// alterei de 'if' para 'switch' pq só verifica igualdade de caracter.
+
+  switch(value) {
+    case '1':
+      console.log('entrei')
+      x = 10;
+      test(x);
+      gridN="DivGrid10";
+      break;
+    case '2':
+      console.log('entrei')
+      x = 15;
+      gridN="DivGrid15";
+      break;
+    case '3':
+      console.log('entrei')
+      x = 20;
+      gridN="DivGrid20";
+      break;
+    default:
+      console.log('invalido');
+      break;
   }
 
+  }
+*/
   return (
     /* 
     == Components ==
@@ -62,18 +91,17 @@ function App() {
     */
     <div className="App">
     <Header />
-    <Selector 
-      selectedLevel = {setSelectedLevel}
-      onLevelChange = {handleLevelChange}
-      />
-    <Dificuldade selected={selected} setSelected={setSelected}/>
+    {//<Timer />
+    // <Selector 
+    //   onLevelChange = {handleLevelChange}
+    //   />
+    //<Dificuldade selected={selected} setSelected={setSelected}/>
+    //<ListaWords />
+    //<Menu />
+    }
     <MenuInicial />
-    <Menu />
-    <Jogar
-    selectedLevel = {setSelectedLevel}
-    />
+  
     <Body />
-    <ListaWords />
     <Footer />
     </div>
   );
