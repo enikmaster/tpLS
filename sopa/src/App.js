@@ -48,6 +48,7 @@ function App() {
     - Footer -
       > "trabalho realizado por X, Y e Z no âmbito da cadeira de Linguagens Script"
     */
+   
     <div className="App">
       <Header />
       {
