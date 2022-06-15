@@ -8,8 +8,11 @@
 .MenuInicial {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
     .editButt {
         margin: 5px;
         width: 200px;
@@ -21,10 +24,5 @@
             color: cor.$dark;
             transition: all 0.3s ease-in-out;
         }
-    }
-    h3 {
-        color: cor.$light;
-        font-family: font.$sans;
-        font-size: tam.$sizeBig;
     }
 }

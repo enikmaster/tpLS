@@ -427,8 +427,11 @@ textarea {
 .MenuInicial {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 .MenuInicial .editButt {
   margin: 5px;
@@ -441,9 +444,4 @@ textarea {
   background-color: #65c6ec;
   color: #313131;
   transition: all 0.3s ease-in-out;
-}
-.MenuInicial h3 {
-  color: #e2e2e2;
-  font-family: "Comfortaa", "Segoe UI", sans-serif;
-  font-size: 2rem;
 }/*# sourceMappingURL=menu.css.map */
