@@ -21,6 +21,9 @@
       transition: all 0.3s ease-in-out; 
     }
   }
+  &.hidden {
+    display:none;
+  }
 }
 
 .DivGrid10{
@@ -32,4 +35,3 @@
 .DivGrid20{
     grid-template-columns: repeat(20, 50px);
 }
-

@@ -1,5 +1,6 @@
 import "./css/divGrid.css";
 import { useState } from "react";
+import { palavras } from "../data";
 
 function Jogar(props) {
   let i = 0;
@@ -13,7 +14,7 @@ function Jogar(props) {
   // "Ola tenho " + gridN + ' anos'
   // `ola tenho ${gridN} anos`
   return (
-    <div className={`DivGrid${x}`}>
+    <div className={`DivGrid${x} hidden`}>
       {s.map((items) => (
         <div id={items} className="inGrid">
           0{" "}
