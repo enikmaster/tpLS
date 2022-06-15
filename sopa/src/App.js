@@ -1,17 +1,18 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Body from './components/Body';
-import Menu from './components/Menu';
-import Selector from './components/Selector';
-import ListaWords from './components/ListaWords';
+// import Menu from './components/Menu';
+// import Selector from './components/Selector';
+// import ListaWords from './components/ListaWords';
 import MenuInicial from './components/menuInicial';
-import Dificuldade from './components/Dificuldade';
-
+// import Dificuldade from './components/Dificuldade';
+// import Timer from './components/Timer';
+import './components/css/divGrid.css'
 //import Jogar from './components/Jogar';
-import { useState } from "react";
+//import { useState } from "react";
 
 function App() {
-  const [selected, setSelected] = useState("Dificuldade");
+  /*const [selected, setSelected] = useState("Dificuldade");
   
 
   // Tirar o valor da select box e criar a grid baseada nesse valor.
@@ -20,9 +21,22 @@ function App() {
   const handleLevelChange = (event) => {
     const {value} = event.currentTarget;
     setSelectedLevel(value);
-  
 
-  
+    const test = (x) => {
+      for (i = 0; i < x * x; i++) {
+        s.push(i);
+      }
+      return(
+       <div className={gridN}>
+          {s.map((items)=>(
+              <div id = {items} className = "inGrid">
+                 {items} </div>
+          ))}
+      </div>
+    )
+    
+      }
+
     console.log({value});
 
 
@@ -37,6 +51,7 @@ function App() {
     case '1':
       console.log('entrei')
       x = 10;
+      test(x);
       gridN="DivGrid10";
       break;
     case '2':
@@ -54,20 +69,8 @@ function App() {
       break;
   }
 
-  for (i = 0; i < x * x; i++) {
-    s.push(i);
   }
-  return(
-   <div className={gridN}>
-      {s.map((items)=>(
-          <div id = {items} className = "inGrid">
-             {items} </div>
-      ))}
-  </div>
-)
-
-  }
-
+*/
   return (
     /* 
     == Components ==
@@ -88,15 +91,17 @@ function App() {
     */
     <div className="App">
     <Header />
-    <Selector 
-      onLevelChange = {handleLevelChange}
-      />
-    <Dificuldade selected={selected} setSelected={setSelected}/>
+    {//<Timer />
+    // <Selector 
+    //   onLevelChange = {handleLevelChange}
+    //   />
+    //<Dificuldade selected={selected} setSelected={setSelected}/>
+    //<ListaWords />
+    //<Menu />
+    }
     <MenuInicial />
-    <Menu />
   
     <Body />
-    <ListaWords />
     <Footer />
     </div>
   );

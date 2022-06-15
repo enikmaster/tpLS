@@ -1,5 +1,6 @@
 import './css/menu.css'
 import {useState} from 'react';
+import Selector from './Selector';
 
 const MenuInicial = () => {
 
@@ -16,8 +17,9 @@ const MenuInicial = () => {
 
         <div class="MenuInicial">
             <h3> {menu} </h3>
-            <button onClick={IniciaJogo} className="IniciaJogo editButt"> {inicio}</button>
+            <Selector/>
             <button onClick={HighScore} className="HighScore editButt"  > {pontos}</button>
+            <button onClick={HighScore} className="HighScore editButt"  > {inicio}</button>
         </div >
 
     )

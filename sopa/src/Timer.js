@@ -1,4 +1,6 @@
-function Menu() {
+
+function Timer() {
+    
     return (
         <div >
             
@@ -6,5 +8,4 @@ function Menu() {
         
     )
 }
-
-export default Menu;
+export default Timer;
