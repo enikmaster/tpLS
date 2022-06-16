@@ -4,10 +4,19 @@
 @use "_sizes" as tam;
 @use "sass:color";
 
-.DivGrid10, .DivGrid15, .DivGrid20 {
+.main_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.DivGrid10,
+.DivGrid15,
+.DivGrid20 {
   color: cor.$light;
   display: grid;
   justify-content: center;
+  //width: 400px;
   .inGrid {
     display: flex;
     flex-direction: column;
@@ -18,20 +27,34 @@
     &:hover {
       color: cor.$dark;
       background-color: cor.$light;
-      transition: all 0.3s ease-in-out; 
+      transition: all 0.3s ease-in-out;
     }
   }
-  &.hidden {
+  /* &.hidden {
     display:none;
+  }*/
+}
+.sidemenu {
+  border: 1px solid cor.$gold;
+  margin-left: 30px;
+  width: 100px;
+  text-align: center;
+  ul{
+    display:contents;
+    li{
+      display: flex;
+      flex-direction: column;
+      margin-top: 9px;
+    }
   }
+  
 }
-
-.DivGrid10{
-    grid-template-columns: repeat(10, 50px);
+.DivGrid10 {
+  grid-template-columns: repeat(10, 50px);
 }
-.DivGrid15{
-    grid-template-columns: repeat(15, 50px);
+.DivGrid15 {
+  grid-template-columns: repeat(15, 50px);
 }
-.DivGrid20{
-    grid-template-columns: repeat(20, 50px);
+.DivGrid20 {
+  grid-template-columns: repeat(20, 50px);
 }

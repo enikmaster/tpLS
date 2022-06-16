@@ -1,10 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;600&display=swap");
-.DivGrid10, .DivGrid15, .DivGrid20 {
+.main_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.DivGrid10,
+.DivGrid15,
+.DivGrid20 {
   color: #e2e2e2;
   display: grid;
   justify-content: center;
+  /* &.hidden {
+    display:none;
+  }*/
 }
-.DivGrid10 .inGrid, .DivGrid15 .inGrid, .DivGrid20 .inGrid {
+.DivGrid10 .inGrid,
+.DivGrid15 .inGrid,
+.DivGrid20 .inGrid {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,13 +26,27 @@
   height: 50px;
   border: 1px solid rgba(236, 216, 173, 0.7254901961);
 }
-.DivGrid10 .inGrid:hover, .DivGrid15 .inGrid:hover, .DivGrid20 .inGrid:hover {
+.DivGrid10 .inGrid:hover,
+.DivGrid15 .inGrid:hover,
+.DivGrid20 .inGrid:hover {
   color: #313131;
   background-color: #e2e2e2;
   transition: all 0.3s ease-in-out;
 }
-.DivGrid10.hidden, .DivGrid15.hidden, .DivGrid20.hidden {
-  display: none;
+
+.sidemenu {
+  border: 1px solid rgba(236, 216, 173, 0.7254901961);
+  margin-left: 30px;
+  width: 100px;
+  text-align: center;
+}
+.sidemenu ul {
+  display: contents;
+}
+.sidemenu ul li {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
 }
 
 .DivGrid10 {
