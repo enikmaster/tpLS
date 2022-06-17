@@ -6,7 +6,7 @@ import Menu from "./components/Menu";
 import "./components/css/divGrid.css";
 import { useState } from "react";
 import Jogar from "./components/Jogar";
-import TopTen from "./components/TopTen";
+
 
 
 function App() {
@@ -75,8 +75,6 @@ function App() {
       
       <Jogar gridN={gridN}
       />
-
-      <TopTen />
       <Footer />
     </div>
   );

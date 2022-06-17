@@ -1,5 +1,5 @@
 export const highScores = [
-    {"name":"Hector",
+    {"name":"Tyrone",
      "value":500
     },
     {"name":"Johnny",

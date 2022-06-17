@@ -1,8 +1,8 @@
 import "./css/menu.css";
 import "./css/selectorCus.css"
 import { useState } from "react";
-//import TopTen from "./components/TopTen";
 import { highScores } from "../defaultScores";
+import TopTen from "./TopTen";
 
 function Menu(props) {
     
@@ -12,30 +12,11 @@ function Menu(props) {
   let pontos = "Ver Pontuações";
   let nivel;
 
-  
-
-  
-
-  const onHighScoreClick = () => {
-    console.log('entrei')
-  
-    let sortedScores = highScores.sort((c1, c2) => (c1.value < c2.value) ? 1 : (c1.value > c2.value) ? -1 : 0);
-    {sortedScores.map((data, key) => {
-      return (
-          <div key={key}> {data.name} - {data.value} points</div>
-      );
-  })}
-  
-    console.log(sortedScores)
-  }
-  
-    
-
   const IniciaJogo = () => {};
 
 
   return (
-    <div className="MenuInicial">
+    <div className="Menu">
       <div className="level-selector">
         <label className="custom-selector">
           <select onChange={onLevelChange} name="levels" id="leves">
@@ -45,10 +26,8 @@ function Menu(props) {
           </select>
         </label>
       </div>
-      <button onClick={onHighScoreClick} className="HighScore editButt">
-        {" "}
-        {pontos}
-      </button>
+      <TopTen />
+      
       <button onClick={IniciaJogo} className="Inicio editButt">
         {" "}
         {inicio}

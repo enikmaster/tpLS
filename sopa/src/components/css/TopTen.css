@@ -424,24 +424,6 @@ textarea {
   width: 100%;
 }
 
-.Menu {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 200px;
-  margin-bottom: 200px;
-}
-.Menu .editButt {
-  margin: 5px;
-  width: 200px;
-  border-radius: 0;
-  text-transform: uppercase;
-  border: none;
-}
-.Menu .editButt:hover {
-  background-color: #65c6ec;
-  color: #313131;
-  transition: all 0.3s ease-in-out;
-}/*# sourceMappingURL=menu.css.map */
+#Top10.hidden {
+  visibility: hidden;
+}/*# sourceMappingURL=TopTen.css.map */
