@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;600&display=swap");
+.tabuleiro, .tabuleiro .gridWrapper .infoJogo {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 30px;
+}
+.tabuleiro .gridWrapper, .tabuleiro .gridWrapper .infoJogo .gridWrapper {
+  flex-basis: 50%;
+}
+.tabuleiro .listaWords-container, .tabuleiro #Top10, .tabuleiro .gridWrapper .infoJogo .listaWords-container {
+  flex-basis: 25%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.DivGrid8,
+.DivGrid10,
+.DivGrid15 {
+  color: #e2e2e2;
+  display: grid;
+  justify-content: center;
+}
+.DivGrid8 .inGrid,
+.DivGrid10 .inGrid,
+.DivGrid15 .inGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 50px;
+  border: 1px solid rgba(236, 216, 173, 0.7254901961);
+}
+.DivGrid8 .inGrid:hover,
+.DivGrid10 .inGrid:hover,
+.DivGrid15 .inGrid:hover {
+  color: #313131;
+  background-color: #e2e2e2;
+  transition: all 0.3s ease-in-out;
+}
+
+.DivGrid8 {
+  grid-template-columns: repeat(8, 50px);
+}
+
+.DivGrid10 {
+  grid-template-columns: repeat(10, 50px);
+}
+
+.DivGrid15 {
+  grid-template-columns: repeat(15, 50px);
+}
+
+.sidemenu {
+  border: 1px solid rgba(236, 216, 173, 0.7254901961);
+  margin-left: 30px;
+  width: 100px;
+  text-align: center;
+}
+.sidemenu ul {
+  display: contents;
+}
+.sidemenu ul li {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
+}/*# sourceMappingURL=divGrid.css.map */

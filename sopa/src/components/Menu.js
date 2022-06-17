@@ -3,8 +3,6 @@ import "./css/levelSelector.css"
 import { useState } from "react";
 
 import LevelSelector from "./LevelSeletor";
-
-import { highScores } from "../defaultScores";
 import TopTen from "./TopTen";
 
 
@@ -22,14 +20,10 @@ function Menu(props) {
   const onTopTenHandler = () => {};
 
   return (
-    <div className="MenuInicial">
-      <LevelSelector
-      currentLevel={newLevel}
-      onSelectLevel={selectedLevelHandler} />
+    <div className="Menu">
+      <LevelSelector currentLevel={newLevel} onSelectLevel={selectedLevelHandler} />
+      <TopTen />
       <button value='0' type="button" onStartGame={onStartGameHandler} className="Inicio editButt">Jogar</button>
-      <button type="button" onTopTen={onTopTenHandler} className="HighScore editButt">Ver Top 10</button>
-
- 
     </div>
   );
 }

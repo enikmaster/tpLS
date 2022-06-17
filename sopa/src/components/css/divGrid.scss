@@ -16,7 +16,13 @@
     }
   }
   .listaWords-container {
-    flex-basis: 50%;
+    flex-basis: 25%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #Top10 {
+    @extend .listaWords-container;
   }
 }
 
@@ -25,7 +31,7 @@
 .DivGrid15 {
   color: cor.$light;
   display: grid;
-  justify-content: right;
+  justify-content: center;
   .inGrid {
     display: flex;
     flex-direction: column;

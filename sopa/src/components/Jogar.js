@@ -1,6 +1,6 @@
 import "./css/divGrid.css";
 import { useState } from "react";
-//import { palavras } from "../data";
+import ListaTopTen from "./ListaTopTen";
 import ListaWords from "./ListaWords";
 
 const Jogar = (props) => {
@@ -145,6 +145,7 @@ const Jogar = (props) => {
       </div>
       </div>
       <ListaWords />
+      <ListaTopTen />
     </div>
   );
 }

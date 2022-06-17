@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './css/newWord.css'
 
 const NewWord = (props) => {
     const [addedWord, setAddedWord] = useState('');
@@ -30,7 +31,7 @@ const NewWord = (props) => {
             <form onSubmit={onSubmitHandler}>
                 <label for='addWord'>Adicione uma palavra até 6 letras.</label>
                 <input title='addWord' value={addedWord} type='text' maxlength='6' onChange={newWordChangeHandler} />
-                <button type='submit'>Add word</button>
+                <button type='submit' className="editButt">Add word</button>
             </form>
         </div>
     );

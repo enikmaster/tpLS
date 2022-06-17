@@ -1,0 +1,35 @@
+@use '_normalize';
+@use '_fonts' as font;
+@use '_colors' as cor;
+@use '_media' as media;
+@use '_sizes' as tam;
+@use 'sass:color';
+
+form {
+    text-align: center;
+    label {
+        font-size: tam.$sizeSmallest;
+        display: block;
+        margin: 15px 0;
+    }
+    input {
+        max-width: 150px !important;
+        border: 1px solid cor.$gold !important;
+        background-color: cor.$light !important;
+        padding: 7px 5px 3px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+    .editButt {
+        margin: 5px;
+        width: 150px;
+        border-radius: 0;
+        text-transform: uppercase;
+        border: none;
+        &:hover{
+            background-color: cor.$main;
+            color: cor.$dark;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
