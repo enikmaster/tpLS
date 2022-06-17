@@ -6,9 +6,9 @@
   margin-bottom: 100px;
 }
 
+.DivGrid8,
 .DivGrid10,
-.DivGrid15,
-.DivGrid20 {
+.DivGrid15 {
   color: #e2e2e2;
   display: grid;
   justify-content: center;
@@ -16,9 +16,9 @@
     display:none;
   }*/
 }
+.DivGrid8 .inGrid,
 .DivGrid10 .inGrid,
-.DivGrid15 .inGrid,
-.DivGrid20 .inGrid {
+.DivGrid15 .inGrid {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,9 +26,9 @@
   height: 50px;
   border: 1px solid rgba(236, 216, 173, 0.7254901961);
 }
+.DivGrid8 .inGrid:hover,
 .DivGrid10 .inGrid:hover,
-.DivGrid15 .inGrid:hover,
-.DivGrid20 .inGrid:hover {
+.DivGrid15 .inGrid:hover {
   color: #313131;
   background-color: #e2e2e2;
   transition: all 0.3s ease-in-out;
@@ -49,14 +49,14 @@
   margin-top: 9px;
 }
 
+.DivGrid8 {
+  grid-template-columns: repeat(8, 50px);
+}
+
 .DivGrid10 {
   grid-template-columns: repeat(10, 50px);
 }
 
 .DivGrid15 {
   grid-template-columns: repeat(15, 50px);
-}
-
-.DivGrid20 {
-  grid-template-columns: repeat(20, 50px);
 }/*# sourceMappingURL=divGrid.css.map */
