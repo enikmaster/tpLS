@@ -424,6 +424,9 @@ textarea {
   width: 100%;
 }
 
-li {
-  color: #e2e2e2;
+.listaWords-container > div:first-of-type {
+  border: 1px solid rgba(236, 216, 173, 0.7254901961);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }/*# sourceMappingURL=listaWords.css.map */

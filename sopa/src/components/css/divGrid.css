@@ -1,10 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;600&display=swap");
-.DivGrid10, .DivGrid15, .DivGrid20 {
+.tabuleiro, .tabuleiro .gridWrapper .infoJogo {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 30px;
+}
+.tabuleiro .gridWrapper, .tabuleiro .gridWrapper .infoJogo .gridWrapper {
+  flex-basis: 50%;
+}
+.tabuleiro .listaWords-container, .tabuleiro .gridWrapper .infoJogo .listaWords-container {
+  flex-basis: 50%;
+}
+
+.DivGrid8, .DivGrid10, .DivGrid15 {
   color: #e2e2e2;
   display: grid;
-  justify-content: center;
+  justify-content: right;
 }
-.DivGrid10 .inGrid, .DivGrid15 .inGrid, .DivGrid20 .inGrid {
+.DivGrid8 .inGrid, .DivGrid10 .inGrid, .DivGrid15 .inGrid {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,13 +25,14 @@
   height: 50px;
   border: 1px solid rgba(236, 216, 173, 0.7254901961);
 }
-.DivGrid10 .inGrid:hover, .DivGrid15 .inGrid:hover, .DivGrid20 .inGrid:hover {
+.DivGrid8 .inGrid:hover, .DivGrid10 .inGrid:hover, .DivGrid15 .inGrid:hover {
   color: #313131;
   background-color: #e2e2e2;
   transition: all 0.3s ease-in-out;
 }
-.DivGrid10.hidden, .DivGrid15.hidden, .DivGrid20.hidden {
-  display: none;
+
+.DivGrid8 {
+  grid-template-columns: repeat(8, 50px);
 }
 
 .DivGrid10 {
@@ -27,8 +41,4 @@
 
 .DivGrid15 {
   grid-template-columns: repeat(15, 50px);
-}
-
-.DivGrid20 {
-  grid-template-columns: repeat(20, 50px);
 }/*# sourceMappingURL=divGrid.css.map */
