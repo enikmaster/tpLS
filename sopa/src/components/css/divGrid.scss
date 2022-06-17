@@ -20,7 +20,9 @@
   }
 }
 
-.DivGrid8, .DivGrid10, .DivGrid15 {
+.DivGrid8,
+.DivGrid10,
+.DivGrid15 {
   color: cor.$light;
   display: grid;
   justify-content: right;
@@ -34,7 +36,7 @@
     &:hover {
       color: cor.$dark;
       background-color: cor.$light;
-      transition: all 0.3s ease-in-out; 
+      transition: all 0.3s ease-in-out;
     }
   }
 }
@@ -45,6 +47,20 @@
 .DivGrid10{
     grid-template-columns: repeat(10, 50px);
 }
-.DivGrid15{
+.DivGrid15 {
     grid-template-columns: repeat(15, 50px);
+}
+.sidemenu {
+  border: 1px solid cor.$gold;
+  margin-left: 30px;
+  width: 100px;
+  text-align: center;
+  ul{
+    display:contents;
+    li{
+      display: flex;
+      flex-direction: column;
+      margin-top: 9px;
+    }
+  }
 }

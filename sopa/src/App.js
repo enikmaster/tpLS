@@ -5,6 +5,8 @@ import Menu from "./components/Menu";
 import "./components/css/divGrid.css";
 import Jogar from "./components/Jogar";
 
+
+
 function App() {
   const [gridN, setGridN] = useState("0");
 
@@ -28,6 +30,8 @@ function App() {
         break;
     }
   };
+
+
 
   return (
     /* 
