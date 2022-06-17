@@ -4,18 +4,28 @@
 @use "_sizes" as tam;
 @use "sass:color";
 
-.main_div {
+.tabuleiro{
   display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: center;
-  margin-bottom: 100px;
+  gap: 30px;
+  .gridWrapper {
+    flex-basis: 50%;
+    .infoJogo {
+      @extend .tabuleiro;
+    }
+  }
+  .listaWords-container {
+    flex-basis: 50%;
+  }
 }
+
 .DivGrid8,
 .DivGrid10,
 .DivGrid15 {
   color: cor.$light;
   display: grid;
-  justify-content: center;
+  justify-content: right;
   .inGrid {
     display: flex;
     flex-direction: column;
@@ -29,9 +39,16 @@
       transition: all 0.3s ease-in-out;
     }
   }
-  /* &.hidden {
-    display:none;
-  }*/
+}
+
+.DivGrid8{
+    grid-template-columns: repeat(8, 50px);
+}
+.DivGrid10{
+    grid-template-columns: repeat(10, 50px);
+}
+.DivGrid15 {
+    grid-template-columns: repeat(15, 50px);
 }
 .sidemenu {
   border: 1px solid cor.$gold;
@@ -46,14 +63,4 @@
       margin-top: 9px;
     }
   }
-  
-}
-.DivGrid8 {
-  grid-template-columns: repeat(8, 50px);
-}
-.DivGrid10 {
-  grid-template-columns: repeat(10, 50px);
-}
-.DivGrid15 {
-  grid-template-columns: repeat(15, 50px);
 }

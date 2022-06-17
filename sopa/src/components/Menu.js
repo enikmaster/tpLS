@@ -1,37 +1,35 @@
 import "./css/menu.css";
-import "./css/selectorCus.css"
+import "./css/levelSelector.css"
 import { useState } from "react";
+
+import LevelSelector from "./LevelSeletor";
+
 import { highScores } from "../defaultScores";
 import TopTen from "./TopTen";
 
+
 function Menu(props) {
+  const [newLevel, setNewLevel] = useState('0');
     
-  const { onLevelChange } = props;
-  let menu = "Menu";
-  let inicio = "Iniciar Jogo";
-  let pontos = "Ver Pontuações";
-  let nivel;
+  const selectedLevelHandler = level => {
+    setNewLevel(level);
+    props.onLevelChange(level);
+  };
+  // const [startedGame, setStartedGame] = useState('0');
+  // const [viewTop, setViewTop] = useState('0');
 
-  const IniciaJogo = () => {};
-
+  const onStartGameHandler = () => {};
+  const onTopTenHandler = () => {};
 
   return (
-    <div className="Menu">
-      <div className="level-selector">
-        <label className="custom-selector">
-          <select onChange={onLevelChange} name="levels" id="leves">
-            <option value="1">Facil</option>
-            <option value="2">Intermedio</option>
-            <option value="3">Dificil</option>
-          </select>
-        </label>
-      </div>
-      <TopTen />
-      
-      <button onClick={IniciaJogo} className="Inicio editButt">
-        {" "}
-        {inicio}
-      </button>
+    <div className="MenuInicial">
+      <LevelSelector
+      currentLevel={newLevel}
+      onSelectLevel={selectedLevelHandler} />
+      <button value='0' type="button" onStartGame={onStartGameHandler} className="Inicio editButt">Jogar</button>
+      <button type="button" onTopTen={onTopTenHandler} className="HighScore editButt">Ver Top 10</button>
+
+ 
     </div>
   );
 }

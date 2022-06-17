@@ -1,8 +1,9 @@
 import "./css/divGrid.css";
 import { useState } from "react";
-import { palavras } from "../data";
+//import { palavras } from "../data";
+import ListaWords from "./ListaWords";
 
-function Jogar(props) {
+const Jogar = (props) => {
   let i = 0;
   let j = 0;
   let jr = 0;
@@ -11,6 +12,7 @@ function Jogar(props) {
   let comp =[];
   let o;
   let x = props.gridN;
+
   let names = ['JENNA', 'JOHNY', 'ERICA', 'AMMY', 'STEVE', 'JULIA', 'TONY', 'ALEXIS', 'JAMES', 'CLARA', 'MARK', 'MICHELE'];
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   const letrasSize = letras.length;
@@ -126,8 +128,14 @@ function Jogar(props) {
 
 
   return (
-    <div className="main_div">
-      <div className={`DivGrid${x} hidden`}>
+    <div className="tabuleiro">
+      <div className="gridWrapper">
+        <div className="infoJogo">
+          <h3 className="tempoJogo">Tempo de jogo: 000</h3>
+          <h3 className="scoreJogo">Pontuação: 000</h3>
+          <h3 className="levelJogo">Nível: Pussy</h3>
+        </div>
+        <div className={`DivGrid${x}`}>
 
         {s.map((items) => (
           <div id={jr++} className="inGrid">
@@ -135,12 +143,9 @@ function Jogar(props) {
           </div>
         ))}
       </div>
-      <div className="sidemenu">
-        <ul>{listWords}</ul>
       </div>
-
-
-    </div >
+      <ListaWords />
+    </div>
   );
 }
 
