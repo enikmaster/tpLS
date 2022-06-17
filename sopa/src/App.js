@@ -20,13 +20,13 @@ function App() {
     setSelectedLevel(value);
     switch (value) {
       case "1":
-        setGridN(10);
+        setGridN(8);
         break;
       case "2":
-        setGridN(15);
+        setGridN(10);
         break;
       case "3":
-        setGridN(20);
+        setGridN(15);
         break;
       default:
         console.log("invalido");

@@ -10,13 +10,12 @@
   justify-content: center;
   margin-bottom: 100px;
 }
+.DivGrid8,
 .DivGrid10,
-.DivGrid15,
-.DivGrid20 {
+.DivGrid15 {
   color: cor.$light;
   display: grid;
   justify-content: center;
-  //width: 400px;
   .inGrid {
     display: flex;
     flex-direction: column;
@@ -49,12 +48,12 @@
   }
   
 }
+.DivGrid8 {
+  grid-template-columns: repeat(8, 50px);
+}
 .DivGrid10 {
   grid-template-columns: repeat(10, 50px);
 }
 .DivGrid15 {
   grid-template-columns: repeat(15, 50px);
-}
-.DivGrid20 {
-  grid-template-columns: repeat(20, 50px);
 }
