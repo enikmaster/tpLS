@@ -6,10 +6,14 @@ import Menu from "./components/Menu";
 import "./components/css/divGrid.css";
 import { useState } from "react";
 import Jogar from "./components/Jogar";
+import TopTen from "./components/TopTen";
+
 
 function App() {
   const [selectedLevel, setSelectedLevel] = useState("0");
   const [gridN, setGridN] = useState("0");
+
+
 
   const handleLevelChange = (event) => {
     const { value } = event.currentTarget;
@@ -29,6 +33,8 @@ function App() {
         break;
     }
   };
+
+
 
   return (
     /* 
@@ -64,11 +70,13 @@ function App() {
       <Menu
         onLevelChange={handleLevelChange}
         selectedLevel={selectedLevel}
+        
       />
       
       <Jogar gridN={gridN}
       />
 
+      <TopTen />
       <Footer />
     </div>
   );
