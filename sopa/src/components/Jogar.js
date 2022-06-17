@@ -8,6 +8,7 @@ function Jogar(props) {
   let jr = 0;
   let s = [];
   let arr = [];
+  let comp =[];
   let o;
   let x = props.gridN;
   let names = ['JENNA', 'JOHNY', 'ERICA', 'AMMY', 'STEVE', 'JULIA', 'TONY', 'ALEXIS', 'JAMES', 'CLARA', 'MARK', 'MICHELE'];
@@ -18,12 +19,13 @@ function Jogar(props) {
   let listWords = names.map((items) =>
     <li>{items}</li>
   );
+
+  //funcao para preencher a grid com letras e escolher x palavras random
   function letra() {
     let k = Math.floor(Math.random() * letrasSize);
     o = letras[k];
     return o;
   }
-
   for (i = 0; i < x * x; i++) {
     let n = letra();
     s.push(n);
@@ -39,7 +41,7 @@ function Jogar(props) {
     }
     return namesAux;
   }
-  //cria array2d
+  //cria array2d para poder confirmar letras e palavras
   function criarDoisDArray(arr) {
     let count = 0;
     for (i = 0; i < x; i++) {
@@ -55,41 +57,59 @@ function Jogar(props) {
     }
     return arr;
   }
-
+  //retorna o index em coluna 
   function verificaColuna(row, l) {
-    for (i = row; i <= row; i++) {
-      for (j = 0; j < x; j++) {
-        if (arr[i][j] == s[l]) {
-          return j;
-        }
+    let count = 0;
+    let kil;
+    for (j = 0; j < x; j++) {
+      if (arr[row][j] == s[l]) {
+        kil = j;
       }
     }
+    return kil;
+
+
   }
+
   function reverse(word) {
     return [...word].reverse().join("")
   }
+
+  //funcao para escrever a palavra no index random 
   function verificaOndeEscreverPalavra(size, column, l, word) {
     let m = l;
-    console.log(size);
     let sc = size + column;
-    if (sc < x) {
+   
+   /* for(i=0; i<word.length; i++){
+      comp[i]=s[m];
+      m++;
+    }*/
+   // console.log(comp);
+    if (sc <= x) {
+      m=l;
       for (i = 0; i < word.length; i++) {
         s[m] = word[i];
         m++;
       }
+      criarDoisDArray(arr);
+      return;
     }
-    else if(column-size>0) {
+    if ((column - size) % x > 0) {
+      m=l;
+      let tam = size;
       word = reverse(word);
+      console.log(word);
       for (i = 0; i < size; i++) {
-        s[m-size] = word[i];
-        m++;
+        s[m-tam] = word[i];
+         tam--;
       }
-
+      criarDoisDArray(arr);
+      return;
     }
-
     return;
-  }
 
+  }
+  //serve para escolheraleatoriamente o index para cada palavra
   escolhePosicaoParaPalavra();
   function escolhePosicaoParaPalavra() {
     criarDoisDArray(arr);
@@ -100,8 +120,6 @@ function Jogar(props) {
       let word = namesAux[f];
       let row = Math.floor(l / x);
       let column = verificaColuna(row, l);
-      console.log(namesAux[f] + " " + l);
-      console.log(row + " " + column);
       verificaOndeEscreverPalavra(size, column, l, word);
     }
   }
