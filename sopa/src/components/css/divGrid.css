@@ -8,6 +8,9 @@
 .tabuleiro .gridWrapper, .tabuleiro .gridWrapper .infoJogo .gridWrapper {
   flex-basis: 50%;
 }
+.tabuleiro .gridWrapper .infoJogo {
+  color: red;
+}
 .tabuleiro .listaWords-container, .tabuleiro .gridWrapper .infoJogo .listaWords-container {
   flex-basis: 50%;
 }

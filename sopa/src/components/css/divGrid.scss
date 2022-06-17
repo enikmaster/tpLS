@@ -13,6 +13,7 @@
     flex-basis: 50%;
     .infoJogo {
       @extend .tabuleiro;
+      color: red;
     }
   }
   .listaWords-container {
