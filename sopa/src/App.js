@@ -34,12 +34,18 @@ function App() {
   })
 
 
-const onGameStart = () => {
+const onGameStart = (gameStart) => {
   if (gameStarted == true) {
     setGameStarted(false)
+    
   }
-  else {setGameStarted(true)}
+  else {
+    setGameStarted(true);
+    console.log("testing");
+  }
+ 
 }
+
 
 
 
@@ -89,10 +95,9 @@ const onGameStart = () => {
       onGameStart={onGameStart}
       />
       <Jogar 
+      gameStarted = {gameStarted}
       gridN={gridN} 
       timer={timer}
-      gameStarted = {gameStarted}
-
       />
       <Footer />
     </div>

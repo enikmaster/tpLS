@@ -8,7 +8,7 @@ import TopTen from "./TopTen";
 
 
 function Menu(props) {
-  const [newLevel, setNewLevel] = useState('0');
+  const [newLevel, setNewLevel] = useState(false);
 
     
   const selectedLevelHandler = level => {

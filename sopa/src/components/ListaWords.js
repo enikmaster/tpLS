@@ -44,6 +44,7 @@ function ListaWords(props) {
         setPalavras((prevPalavras) => {
             return [...prevPalavras, newData];
         });
+        props.criaLista(palavras);
     };
 
     return (
@@ -56,6 +57,7 @@ function ListaWords(props) {
             onMimiApertaAqui={mimiApertaAquiHandler}
             tamPalavras={palavras.length} />
         </Card>
+
     );
 }
 
