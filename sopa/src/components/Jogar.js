@@ -9,7 +9,6 @@ const Jogar = (props) => {
   let jr = 0;
   let s = [];
   let arr = [];
-  let comp = [];
   let o;
   let x = props.gridN;
 
@@ -17,9 +16,6 @@ const Jogar = (props) => {
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   const letrasSize = letras.length;
   let namesAux = names;
-  let listWords = names.map((items) =>
-    <li>{items}</li>
-  );
 
   //funcao para preencher a grid com letras e escolher x palavras random
   function letra() {
@@ -63,7 +59,6 @@ const Jogar = (props) => {
   }
   //retorna o index em coluna 
   function verificaColuna(row, l) {
-    let count = 0;
     let kil;
     for (j = 0; j < x; j++) {
       if (arr[row][j] === s[l]) {
@@ -152,7 +147,6 @@ const Jogar = (props) => {
   //ESCREVE VERTICAL C->B
 
   function verificac(size, l, word, row) {
-    let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
@@ -186,7 +180,6 @@ const Jogar = (props) => {
 
   //ESCREVE VERTICAL B->C
   function verificab(size, l, word, row, column) {
-    let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
@@ -219,7 +212,6 @@ const Jogar = (props) => {
   }
   //ESCREVE VERTICAL B->C
   function verificab(size, l, word, row, column) {
-    let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
@@ -253,7 +245,6 @@ const Jogar = (props) => {
 
   //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
   function verificadc(size, l, word, row, column) {
-    let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
@@ -312,7 +303,6 @@ const Jogar = (props) => {
 
   //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
   function verificadcinv(size, l, word, row, column, arr) {
-    let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
@@ -396,32 +386,32 @@ const Jogar = (props) => {
         column = verificaColuna(row, l);
         sc = column + size;
         ver = 1;
-/*
-
-        switch (random) {
-          case 0:
-            ver = verificalinhad(size, l, word, sc);
-            break;
-          case 1:
-            ver = verificalinhae(size, column, l, word, sc);
-            break;
-          case 2:
-            ver = verificac(size, l, word, row);
-            break;
-          case 3:
-            ver = verificab(size, l, word, row);
-          case 4:
-            ver = verificadc(size, l, word, row, column);
-            break;
-          case 5:
-            ver = verificadcinv(size, l, word, row, column, arr);
-            console.log(ver);
-            break;
-
-          default:
-            ver = 0;
-            break;
-        }*/
+        /*
+        
+                switch (random) {
+                  case 0:
+                    ver = verificalinhad(size, l, word, sc);
+                    break;
+                  case 1:
+                    ver = verificalinhae(size, column, l, word, sc);
+                    break;
+                  case 2:
+                    ver = verificac(size, l, word, row);
+                    break;
+                  case 3:
+                    ver = verificab(size, l, word, row);
+                  case 4:
+                    ver = verificadc(size, l, word, row, column);
+                    break;
+                  case 5:
+                    ver = verificadcinv(size, l, word, row, column, arr);
+                    console.log(ver);
+                    break;
+        
+                  default:
+                    ver = 0;
+                    break;
+                }*/
 
       } while (ver === 0);
       console.log(`Palavras: ${word} Linha: ${row}  Coluna: ${column}`);
