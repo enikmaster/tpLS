@@ -1,5 +1,5 @@
 import "./css/divGrid.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ListaTopTen from "./ListaTopTen";
 import ListaWords from "./ListaWords";
 
@@ -9,7 +9,6 @@ const Jogar = (props) => {
   let jr = 0;
   let s = [];
   let arr = [];
-  let comp = [];
   let o;
   let x = props.gridN;
 
@@ -17,9 +16,8 @@ const Jogar = (props) => {
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   const letrasSize = letras.length;
   let namesAux = names;
-  let listWords = names.map((items) =>
-    <li>{items}</li>
-  );
+
+  
 
   //funcao para preencher a grid com letras e escolher x palavras random
   function letra() {
@@ -373,7 +371,7 @@ const Jogar = (props) => {
 
 
   //serve para escolheraleatoriamente o index para cada palavra
-  escolhePosicaoParaPalavra();
+  //escolhePosicaoParaPalavra();
   function escolhePosicaoParaPalavra() {
     criarDoisDArray(arr);
     let f = 0;
@@ -434,13 +432,23 @@ const Jogar = (props) => {
     }
   }
 
+  // funcao para exibir nivel de dificuldade
+  const funcao123 = () => {
+    if (props.gridN == 8)
+    return "Fácil"  
+    if (props.gridN == 10)
+    return "Intermédio"  
+    if (props.gridN == 15)
+    return "Difícil"  
+  }
+
   return (
     <div className="tabuleiro">
       <div className="gridWrapper">
         <div className="infoJogo">
-          <h3 className="tempoJogo">Tempo de jogo: 000</h3>
+          <h3 className="tempoJogo"> Tempo de jogo: {props.timer}</h3>
           <h3 className="scoreJogo">Pontuação: 000</h3>
-          <h3 className="levelJogo">Nível: Pussy</h3>
+          <h3  className="levelJogo">Nível: {funcao123()} </h3>
         </div>
         <div className={`DivGrid${x}`}>
 

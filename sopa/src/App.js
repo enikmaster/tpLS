@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
@@ -7,6 +7,42 @@ import Jogar from "./components/Jogar";
 
 function App() {
   const [gridN, setGridN] = useState("0");
+  const [timer, setTimer] = useState(100);
+  const [gameStarted, setGameStarted] = useState(false);
+  let timerID;
+
+
+  //timer
+  useEffect(() => {
+    if (gameStarted) {
+      timerID = setInterval(() => {
+        setTimer(timer-1);
+        }
+      , 1000);
+      console.log(timer)
+    if (timer == 0){
+      setGameStarted(false)
+      setTimer(100)
+    }
+    }
+    else {
+      setTimer(100)
+    }
+    return() => {
+      clearInterval(timerID)
+    }
+  })
+
+
+const onGameStart = () => {
+  if (gameStarted == true) {
+    setGameStarted(false)
+  }
+  else {setGameStarted(true)}
+}
+
+
+
 
   const handleLevelChange = (level) => {
     const value = level;
@@ -48,8 +84,16 @@ function App() {
    
     <div className="App">
       <Header />
-      <Menu onLevelChange={handleLevelChange} />
-      <Jogar gridN={gridN} />
+      <Menu onLevelChange={handleLevelChange} 
+      gameStarted = {gameStarted}
+      onGameStart={onGameStart}
+      />
+      <Jogar 
+      gridN={gridN} 
+      timer={timer}
+      gameStarted = {gameStarted}
+
+      />
       <Footer />
     </div>
   );
