@@ -13,7 +13,7 @@ const Jogar = (props) => {
   let o;
   let x = props.gridN;
 
-  let names = ['JENNA', 'JOHNY', 'ERICA', 'AMMY', 'STEVE', 'JULIA', 'TONY', 'ALEXIS', 'JAMES', 'CLARA', 'MARK', 'MICHELE'];
+  let names = ['JENNA', 'JOHNY', 'ERICA', 'AMMY', 'STEVE', 'JULIA', 'TONY', 'ALEXIS', 'JAMES', 'CLARA', 'MARK', 'MICHEE'];
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   const letrasSize = letras.length;
   let namesAux = names;
@@ -32,13 +32,16 @@ const Jogar = (props) => {
     s.push(i);
   }
   //cria lista 
-  escolheListaPalavras(x);
-  function escolheListaPalavras(x) {
-    let xc = names.length - 5;
-    for (i = 0; i < names.length - 5; i++) {
-      let n = Math.floor(Math.random() * xc);
+  escolheListaPalavras();
+
+  function escolheListaPalavras() {
+    let wordsshowing = 0;
+
+    x === 8 ? wordsshowing = 6 : (x === 10 ? wordsshowing = 8 : wordsshowing = 10);
+    for (i = 0; i < (names.length - wordsshowing); i++) {
+      let n = Math.floor(Math.random() * (names.length--));
+      //console.log(i + " valor de namesAux" + namesAux.length);
       let k = namesAux.splice(n, 1);
-      xc--;
     }
     return namesAux;
   }
@@ -63,7 +66,7 @@ const Jogar = (props) => {
     let count = 0;
     let kil;
     for (j = 0; j < x; j++) {
-      if (arr[row][j] == s[l]) {
+      if (arr[row][j] === s[l]) {
         kil = j;
       }
     }
@@ -77,12 +80,12 @@ const Jogar = (props) => {
   }
 
   //ESCREVE HORIZONTAL E->D
-  function verificalinhad(size, l, word, sc) {
+  function verificalinhad(size, l, word, sc, column) {
     let m = l;
     let verify = 0;
     let linhad = 0;
     i = 0;
-    if (Number.isInteger(s[l]) == true || s[l] == word[i]) {
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
       verify = 1;
     }
     if (verify != 1) {
@@ -90,14 +93,14 @@ const Jogar = (props) => {
     }
     if (sc <= x) {
       for (i = 0; i < size; i++) {
-        if (Number.isInteger(s[l + i]) == true) {
+        if (Number.isInteger(s[l + i]) === true) {
           linhad++;
         }
-        else if (s[l + i] == word[i]) {
+        else if (s[l + i] === word[i]) {
           linhad++;
         }
       }
-      if (linhad == size) {
+      if (linhad === size) {
         m = l;
         for (i = 0; i < size; i++) {
           s[m] = word[i];
@@ -118,7 +121,7 @@ const Jogar = (props) => {
     let verify = 0;
     let linhae = 0;
     i = 0;
-    if (Number.isInteger(s[l]) == true || s[l] == word[i]) {
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
       verify = 1;
     }
     if (verify != 1) {
@@ -127,14 +130,12 @@ const Jogar = (props) => {
     if (column - size >= 0) {
       m = l;
       for (i = 0; i < size; i++) {
-        if (Number.isInteger(s[m--]) == true) {
+        if (Number.isInteger(s[m--]) === true || (s[m--] === word[i])) {
           linhae++;
         }
-        else if (s[m--] == word[i]) {
-          linhae++;
-        }
+
       }
-      if (linhae == size) {
+      if (linhae === size) {
         m = l;
         for (i = 0; i < word.length; i++) {
           s[m--] = word[i];
@@ -149,31 +150,26 @@ const Jogar = (props) => {
   }
 
   //ESCREVE VERTICAL C->B
+
   function verificac(size, l, word, row) {
     let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
-    if (Number.isInteger(s[l]) == true || s[l] == word[i]) {
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
       verify = 1;
     }
     if (verify != 1) {
       return 0;
     }
-    if (size + row <= x) {
-      //console.log("Verify: " + verify);
+    if (row - size >= 0) {
       for (i = 0; i < size; i++) {
-        if (Number.isInteger(s[l + valorx]) == true) {
+        if (Number.isInteger(s[l + valorx]) === true || (s[l + valorx] === word[i])) {
           linhac++;
           valorx += x;
         }
-        else if (s[l + valorx] == word[i]) {
-          linhac++;
-          valorx += valorx;
-        }
       }
-      if (linhac == size) {
-        m = l;
+      if (linhac === size) {
         valorx = 0;
         for (i = 0; i < size; i++) {
           s[l + valorx] = word[i];
@@ -184,41 +180,186 @@ const Jogar = (props) => {
       }
       else
         return 0;
-      return 0;
     }
     return 0;
-
   }
 
   //ESCREVE VERTICAL B->C
-  function verificab(size, l, word, row) {
+  function verificab(size, l, word, row, column) {
     let m = l;
     let verify = 0;
     let linhac = 0;
     let valorx = 0;
-    if (Number.isInteger(s[l]) == true || s[l] == word[i]) {
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
       verify = 1;
     }
     if (verify != 1) {
       return 0;
     }
     if (row - size >= 0) {
-      console.log("ERROS:::: " + verify);
       for (i = 0; i < size; i++) {
-        if (Number.isInteger(s[l - valorx]) == true) {
+        if (Number.isInteger(s[l - valorx]) === true || (s[l - valorx] === word[i])) {
           linhac++;
           valorx += x;
         }
-        else if (s[l - valorx] == word[i]) {
+        if (linhac === size) {
+          valorx = 0;
+          for (i = 0; i < size; i++) {
+            s[l - valorx] = word[i];
+            valorx += x;
+          }
+          criarDoisDArray(arr);
+          return 1;
+        }
+        else
+          return 0;
+      }
+      return 0;
+    }
+  }
+  //ESCREVE VERTICAL B->C
+  function verificab(size, l, word, row, column) {
+    let m = l;
+    let verify = 0;
+    let linhac = 0;
+    let valorx = 0;
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
+      verify = 1;
+    }
+    if (verify != 1) {
+      return 0;
+    }
+    if (row - size >= 0) {
+      for (i = 0; i < size; i++) {
+        if (Number.isInteger(s[l - valorx]) === true || (s[l - valorx] === word[i])) {
           linhac++;
-          valorx += valorx;
+          valorx += x;
+        }
+        if (linhac === size) {
+          valorx = 0;
+          for (i = 0; i < size; i++) {
+            s[l - valorx] = word[i];
+            valorx += x;
+          }
+          criarDoisDArray(arr);
+          return 1;
+        }
+        else
+          return 0;
+      }
+      return 0;
+    }
+  }
+
+  //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
+  function verificadc(size, l, word, row, column) {
+    let m = l;
+    let verify = 0;
+    let linhac = 0;
+    let valorx = 0;
+
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
+      verify = 1;
+    }
+    if (verify != 1) {
+      return 0;
+    }
+
+    if ((row + size) <= x && (column + 1 - size) >= 0) {
+      for (i = 0; i < size; i++) {
+        if (Number.isInteger(s[l + valorx]) === true || (Number.isInteger(s[l + valorx]) === word[i])) {
+          linhac++;
+          valorx += x - 1;
         }
       }
-      if (linhac == size) {
+      if (linhac === size) {
+        valorx = 0;
+        for (i = 0; i < size; i++) {
+          s[l + valorx] = word[i];
+          valorx += x - 1;
+        }
+        criarDoisDArray(arr);
+        return 1;
+      }
+    }
+    if (column + size <= x && size + row <= x) {
+      let linhacC = 0;
+      valorx = 0;
+      for (i = 0; i < size; i++) {
+        if (Number.isInteger(s[l + valorx]) === true || (Number.isInteger(s[l + valorx]) === word[i])) {
+          linhacC++;
+          valorx += x + 1;
+        }
+      }
+      if (linhacC === size) {
+        valorx = 0;
+        for (i = 0; i < size; i++) {
+          s[l + valorx] = word[i];
+          valorx += x + 1;
+        }
+        criarDoisDArray(arr);
+        return 1;
+      }
+      else
+        return 0;
+
+    }
+    else
+      return 0;
+  }
+
+
+
+  //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
+  function verificadcinv(size, l, word, row, column, arr) {
+    let m = l;
+    let verify = 0;
+    let linhac = 0;
+    let valorx = 0;
+
+    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
+      verify = 1;
+    }
+    if (verify != 1) {
+      return 0;
+    }
+    if (linhac === 1) {
+
+    }
+
+    if (((column + 1) + size <= x) && (((row + 1)) - size >= 0)) {
+      for (i = 0; i < size; i++) {
+        if (Number.isInteger(s[l - valorx]) === true || ((s[l - valorx]) === word[i])) {
+          linhac++;
+          valorx += x - 1;
+        }
+      }
+      if (linhac === size) {
         valorx = 0;
         for (i = 0; i < size; i++) {
           s[l - valorx] = word[i];
-          valorx += x;
+          valorx += x - 1;
+        }
+        criarDoisDArray(arr);
+        return 1;
+      }
+      else
+        return 0;
+    }
+
+    else if (column + 1 - size >= 0 && row + 1 - size <= x) {
+      linhac = 0;
+      for (i = 0; i < size; i++) {
+        if (Number.isInteger(s[l - valorx]) === true || ((s[l - valorx]) === word[i])) {
+          linhac++;
+          valorx += x + 1;
+        }
+      }
+      if (linhac === size) {
+        valorx = 0;
+        for (i = 0; i < size; i++) {
+          s[l - valorx] = word[i];
+          valorx += x + 1;
         }
         criarDoisDArray(arr);
         return 1;
@@ -230,12 +371,13 @@ const Jogar = (props) => {
   }
 
 
+
   //serve para escolheraleatoriamente o index para cada palavra
   escolhePosicaoParaPalavra();
   function escolhePosicaoParaPalavra() {
     criarDoisDArray(arr);
     let f = 0;
-    let ver = 1;
+    let ver = 0;
     let size;
     let word;
     let row;
@@ -246,14 +388,15 @@ const Jogar = (props) => {
     for (f = 0; f < namesAux.length; f++) {
 
       do {
-        l = Math.floor(Math.random() * (x * x));
         size = namesAux[f].length;
         word = namesAux[f];
+        l = Math.floor(Math.random() * (x * x));
+        random = Math.floor(Math.random() * (5));
         row = Math.floor(l / x);
         column = verificaColuna(row, l);
         sc = column + size;
-        //ver = verificalinhad(size, l, word, sc);
-        random = Math.floor(Math.random() * (4));
+
+
         switch (random) {
           case 0:
             ver = verificalinhad(size, l, word, sc);
@@ -266,18 +409,25 @@ const Jogar = (props) => {
             break;
           case 3:
             ver = verificab(size, l, word, row);
+          case 4:
+            ver = verificadc(size, l, word, row, column);
             break;
-          /*
-*/
+          case 5:
+            ver = verificadcinv(size, l, word, row, column, arr);
+            console.log(ver);
+            break;
+
           default:
+            ver = 0;
             break;
         }
+
       } while (ver === 0);
-      console.log("Valor de random: " + random + " Linha: " + row + " Coluna: " + column + " Palavra: " + word + " VALOR DE L " + l);
+      console.log(`Palavras: ${word} Linha: ${row}  Coluna: ${column}`);
     }
 
     for (i = 0; i < x * x; i++) {
-      if (Number.isInteger(s[i]) == true) {
+      if (Number.isInteger(s[i]) === true) {
         s[i] = letra();
       }
     }
