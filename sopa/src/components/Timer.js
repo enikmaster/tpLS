@@ -1,34 +1,40 @@
 import {useEffect, useState} from 'react';
 
-const [timer, setTimerHandler] = useState(100);
 
-function Timer() {
-    
+function Timer(props) {
+  const [timer, setTimer] = useState(100);
+  
+  
+  let timerID;
+ 
+
+  //timer
   useEffect(() => {
-      if (gameStarted) {
-         let timerId = setInterval(() => {
-          let nextTimer;
-          setTimerHandler((previousState) => {
-            console.log('acabou de passar um segundo')
-            nextTimer = previousState - 1;
-            return nextTimer;
-          });
-
-        if (nextTimer === 0) {
-          setGameStarted(false);
-
+    if (props.gameStarted) {
+      timerID = setInterval(() => {
+        setTimer(timer-1);
         }
-        }, 1000);
-    } else if (timer !== 100) {
-      setTimerHandler(100);
+      , 1000);
+      console.log('console.log'+ timer)
+    if (timer == 0){
+      props.setGameStarted(false)
+      setTimer(100)
     }
+    }
+    else {
+      setTimer(100)
+    }
+    return() => {
+      clearInterval(timerID)
+    }
+  })
 
-    return () => {
-      if (timerId) {
-        clearInterval(timerId);
-      }
-    };
-  }, [gameStarted]);
-      
+
+return (
+  <div >Timer: {timer}</div>
+)
+
 }
+
+
 export default Timer;

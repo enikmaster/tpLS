@@ -371,7 +371,7 @@ const Jogar = (props) => {
 
 
   //serve para escolheraleatoriamente o index para cada palavra
-  //escolhePosicaoParaPalavra();
+  escolhePosicaoParaPalavra();
   function escolhePosicaoParaPalavra() {
     criarDoisDArray(arr);
     let f = 0;
@@ -394,8 +394,8 @@ const Jogar = (props) => {
         column = verificaColuna(row, l);
         sc = column + size;
         ver = 1;
-/*
 
+/*
         switch (random) {
           case 0:
             ver = verificalinhad(size, l, word, sc);
@@ -419,8 +419,8 @@ const Jogar = (props) => {
           default:
             ver = 0;
             break;
-        }*/
-
+        }
+*/
       } while (ver === 0);
       console.log(`Palavras: ${word} Linha: ${row}  Coluna: ${column}`);
     }
@@ -432,15 +432,15 @@ const Jogar = (props) => {
     }
   }
 
-  console.log(i++);
+ 
 
   // funcao para exibir nivel de dificuldade
   const funcao123 = () => {
-    if (props.gridN == 8)
+    if (props.gridN === 8)
     return "Fácil"  
-    if (props.gridN == 10)
+    if (props.gridN === 10)
     return "Intermédio"  
-    if (props.gridN == 15)
+    if (props.gridN === 15)
     return "Difícil"  
   }
 
