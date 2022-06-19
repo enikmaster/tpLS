@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import ListaTopTen from "./ListaTopTen";
 import ListaWords from "./ListaWords";
 
+let names = [];
+
 const Jogar = (props) => {
   let i = 0;
   let j = 0;
@@ -11,13 +13,12 @@ const Jogar = (props) => {
   let arr = [];
   let o;
   let x = props.gridN;
+  console.log("valor de props" + props.gameStarted);
 
-  let names = ['JENNA', 'JOHNY', 'ERICA', 'AMMY', 'STEVE', 'JULIA', 'TONY', 'ALEXIS', 'JAMES', 'CLARA', 'MARK', 'MICHEE'];
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   const letrasSize = letras.length;
   let namesAux = names;
 
-  
 
   //funcao para preencher a grid com letras e escolher x palavras random
   function letra() {
@@ -215,39 +216,7 @@ const Jogar = (props) => {
       return 0;
     }
   }
-  //ESCREVE VERTICAL B->C
-  function verificab(size, l, word, row, column) {
-    let m = l;
-    let verify = 0;
-    let linhac = 0;
-    let valorx = 0;
-    if (Number.isInteger(s[l]) === true || s[l] === word[i]) {
-      verify = 1;
-    }
-    if (verify != 1) {
-      return 0;
-    }
-    if (row - size >= 0) {
-      for (i = 0; i < size; i++) {
-        if (Number.isInteger(s[l - valorx]) === true || (s[l - valorx] === word[i])) {
-          linhac++;
-          valorx += x;
-        }
-        if (linhac === size) {
-          valorx = 0;
-          for (i = 0; i < size; i++) {
-            s[l - valorx] = word[i];
-            valorx += x;
-          }
-          criarDoisDArray(arr);
-          return 1;
-        }
-        else
-          return 0;
-      }
-      return 0;
-    }
-  }
+
 
   //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
   function verificadc(size, l, word, row, column) {
@@ -305,7 +274,6 @@ const Jogar = (props) => {
     else
       return 0;
   }
-
 
 
   //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
@@ -368,10 +336,10 @@ const Jogar = (props) => {
     return 0;
   }
 
-
+console.log(names);
 
   //serve para escolheraleatoriamente o index para cada palavra
-  //escolhePosicaoParaPalavra();
+  escolhePosicaoParaPalavra();
   function escolhePosicaoParaPalavra() {
     criarDoisDArray(arr);
     let f = 0;
@@ -394,8 +362,7 @@ const Jogar = (props) => {
         column = verificaColuna(row, l);
         sc = column + size;
         ver = 1;
-/*
-
+        
         switch (random) {
           case 0:
             ver = verificalinhad(size, l, word, sc);
@@ -408,6 +375,7 @@ const Jogar = (props) => {
             break;
           case 3:
             ver = verificab(size, l, word, row);
+            break;
           case 4:
             ver = verificadc(size, l, word, row, column);
             break;
@@ -415,12 +383,11 @@ const Jogar = (props) => {
             ver = verificadcinv(size, l, word, row, column, arr);
             console.log(ver);
             break;
-
           default:
             ver = 0;
             break;
-        }*/
-
+        }
+      
       } while (ver === 0);
       console.log(`Palavras: ${word} Linha: ${row}  Coluna: ${column}`);
     }
@@ -432,17 +399,27 @@ const Jogar = (props) => {
     }
   }
 
-  console.log(i++);
-
+  // console.log(i++);
   // funcao para exibir nivel de dificuldade
   const funcao123 = () => {
     if (props.gridN == 8)
-    return "Fácil"  
+      return "Fácil"
     if (props.gridN == 10)
-    return "Intermédio"  
+      return "Intermédio"
     if (props.gridN == 15)
-    return "Difícil"  
+      return "Difícil"
   }
+
+  const [todaLista, setTodaLista] = useState(names);
+  const onShitHappensHandler = (listaPalavras) => {
+    setTodaLista(listaPalavras);
+    for (i = 0; i < todaLista.length; i++) {
+      names.push(todaLista[i].name);
+    console.log(typeof(names));
+    }
+
+  }
+
 
   return (
     <div className="tabuleiro">
@@ -450,18 +427,19 @@ const Jogar = (props) => {
         <div className="infoJogo">
           <h3 className="tempoJogo"> Tempo de jogo: {props.timer}</h3>
           <h3 className="scoreJogo">Pontuação: 000</h3>
-          <h3  className="levelJogo">Nível: {funcao123()} </h3>
+          <h3 className="levelJogo">Nível: {funcao123()} </h3>
         </div>
         <div className={`DivGrid${x}`}>
 
-          {s.map((items) => (
-            <div id={jr++} className="inGrid">
+          {s.map((items, key) => (
+            <div id={jr++} key={key} className="inGrid">
               {items}{" "}
             </div>
           ))}
         </div>
       </div>
-      <ListaWords />
+      <ListaWords criaLista={onShitHappensHandler}
+      />
       <ListaTopTen />
     </div>
   );
