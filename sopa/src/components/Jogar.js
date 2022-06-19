@@ -432,6 +432,8 @@ const Jogar = (props) => {
     }
   }
 
+  console.log(i++);
+
   // funcao para exibir nivel de dificuldade
   const funcao123 = () => {
     if (props.gridN == 8)
