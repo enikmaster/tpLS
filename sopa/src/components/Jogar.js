@@ -395,7 +395,8 @@ const Jogar = (props) => {
         row = Math.floor(l / x);
         column = verificaColuna(row, l);
         sc = column + size;
-
+        ver = 1;
+/*
 
         switch (random) {
           case 0:
@@ -420,7 +421,7 @@ const Jogar = (props) => {
           default:
             ver = 0;
             break;
-        }
+        }*/
 
       } while (ver === 0);
       console.log(`Palavras: ${word} Linha: ${row}  Coluna: ${column}`);

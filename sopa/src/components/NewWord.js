@@ -13,11 +13,8 @@ const NewWord = (props) => {
         if (props.tamPalavras <= 20) {
             const newData = {
                 id: props.tamPalavras+1,
-                word: addedWord,
+                name: addedWord,
             }
-            //setNewWordId(palavras.length + 1);
-            //let tamPalavras = palavras.length;
-            //console.log(newData);
             props.onMimiApertaAqui(newData);
         } else {
             console.log('Lista cheia!')
@@ -29,8 +26,8 @@ const NewWord = (props) => {
     return (
         <div className="addWord-container">
             <form onSubmit={onSubmitHandler}>
-                <label for='addWord'>Adicione uma palavra até 6 letras.</label>
-                <input title='addWord' value={addedWord} type='text' maxlength='6' onChange={newWordChangeHandler} />
+                <label htmlFor='addWord'>Adicione uma palavra até 6 letras.</label>
+                <input title='addWord' value={addedWord} type='text' maxLength='6' onChange={newWordChangeHandler} required />
                 <button type='submit' className="editButt">Add word</button>
             </form>
         </div>

@@ -5,8 +5,6 @@ import Menu from "./components/Menu";
 import "./components/css/divGrid.css";
 import Jogar from "./components/Jogar";
 
-
-
 function App() {
   const [gridN, setGridN] = useState("0");
 
@@ -31,13 +29,9 @@ function App() {
     }
   };
 
-
-
   return (
     /* 
     == Components ==
-    - Header -
-      > Título
     - Menu -
       == Elementos que trigam ==
       - seleção de nível 
@@ -50,8 +44,6 @@ function App() {
     - Tabuleiro de jogo -
       - grid -
       - Lista de palavras -
-    - Footer -
-      > "trabalho realizado por X, Y e Z no âmbito da cadeira de Linguagens Script"
     */
    
     <div className="App">
@@ -59,15 +51,6 @@ function App() {
       <Menu onLevelChange={handleLevelChange} />
       <Jogar gridN={gridN} />
       <Footer />
-      {
-        //<Timer />
-        // <Selector
-        //   onLevelChange = {handleLevelChange}
-        //   />
-        //<Dificuldade selected={selected} setSelected={setSelected}/>
-        //<ListaWords />
-        //<Menu />
-      }
     </div>
   );
 }
