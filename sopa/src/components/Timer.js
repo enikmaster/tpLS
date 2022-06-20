@@ -1,3 +1,4 @@
+import './css/timer.css'
 import {useEffect, useState} from 'react';
 
 
@@ -30,7 +31,7 @@ function Timer(props) {
 
 
 return (
-  <div >Timer: {timer}</div>
+  <div id="timer" >Timer: {timer}</div>
 )
 
 }

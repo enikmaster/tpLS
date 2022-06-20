@@ -62,12 +62,12 @@ function App() {
       <Menu onLevelChange={handleLevelChange} 
       onGameStart={onGameStart}
       />
-      <Jogar 
-      gridN={gridN}
-      />
       <Timer 
       gameStarted = {gameStarted}
       setGameStarted = {setGameStarted}
+      />
+      <Jogar 
+      gridN={gridN}
       />
       <Footer />
     </div>

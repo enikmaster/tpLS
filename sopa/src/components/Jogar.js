@@ -2,6 +2,7 @@ import "./css/divGrid.css";
 import { useState, useEffect } from "react";
 import ListaTopTen from "./ListaTopTen";
 import ListaWords from "./ListaWords";
+import Timer from "./Timer";
 
 let names = [];
 
@@ -13,7 +14,7 @@ const Jogar = (props) => {
   let s = [];
   let arr = [];
   let v = [];
-  let score=0;
+  let score = [];
   let vaux = [];
   let o;
   let x = props.gridN;
@@ -669,16 +670,16 @@ const Jogar = (props) => {
 
   }
 
-  const [pontuacao, setPontuacao] = useState('0');
 
+
+  let pontos = 0;
   function primeiroClick(event) {
     let yuri;
     v.push(event.target.id);
     if (v.length === 2) {
       yuri = todasorientacoes(v);
       if (yuri === 1) {
-        score += 100;
-        setPontuacao(score);
+        pontos += 100;
         // console.log("Pontuacao " + pontuacao);
       }
     }
@@ -691,8 +692,8 @@ const Jogar = (props) => {
     <div className="tabuleiro">
       <div className="gridWrapper">
         <div className="infoJogo">
-          <h3 className="tempoJogo"> Tempo de jogo: {props.timer}</h3>
-          <h3 className="scoreJogo">Pontuação: {pontuacao}</h3>
+          <h3 className="scoreJogo"> Pontuacao: {pontos} </h3>
+
           <h3 className="levelJogo">Nível: {funcao123()} </h3>
         </div>
         <div className={`DivGrid${x}`}>
