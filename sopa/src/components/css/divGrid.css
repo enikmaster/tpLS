@@ -38,6 +38,11 @@
   background-color: #e2e2e2;
   transition: all 0.3s ease-in-out;
 }
+.DivGrid8 .risca,
+.DivGrid10 .risca,
+.DivGrid15 .risca {
+  background-color: rgba(236, 216, 173, 0.7254901961);
+}
 
 .DivGrid8 {
   grid-template-columns: repeat(8, 50px);

@@ -15,7 +15,6 @@ function Timer(props) {
         setTimer(timer-1);
         }
       , 1000);
-      console.log('console.log'+ timer)
     if (timer == 0){
       props.setGameStarted(false)
       setTimer(100)

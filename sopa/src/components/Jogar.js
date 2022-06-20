@@ -7,10 +7,14 @@ let names = [];
 
 const Jogar = (props) => {
   let i = 0;
+  let t;
   let j = 0;
   let jr = 0;
   let s = [];
   let arr = [];
+  let v = [];
+  let score=0;
+  let vaux = [];
   let o;
   let x = props.gridN;
   console.log("valor de props" + props.gameStarted);
@@ -27,7 +31,7 @@ const Jogar = (props) => {
     return o;
   }
   for (i = 0; i < x * x; i++) {
-    let n = letra();
+    //let n = letra();
     s.push(i);
   }
   //cria lista 
@@ -36,7 +40,7 @@ const Jogar = (props) => {
   function escolheListaPalavras() {
     let wordsshowing = 0;
 
-    x === 8 ? wordsshowing = 6 : (x === 10 ? wordsshowing = 8 : wordsshowing = 10);
+    x === 8 ? wordsshowing = 4 : (x === 10 ? wordsshowing = 7 : wordsshowing = 10);
     for (i = 0; i < (names.length - wordsshowing); i++) {
       let n = Math.floor(Math.random() * (names.length--));
       //console.log(i + " valor de namesAux" + namesAux.length);
@@ -336,7 +340,8 @@ const Jogar = (props) => {
     return 0;
   }
 
-console.log(names);
+
+  console.log(names);
 
   //serve para escolheraleatoriamente o index para cada palavra
   escolhePosicaoParaPalavra();
@@ -358,40 +363,35 @@ console.log(names);
         word = namesAux[f];
         l = Math.floor(Math.random() * (x * x));
         random = Math.floor(Math.random() * (5));
-        row = Math.floor(l / x);
+        row = parseInt(l / x);
         column = verificaColuna(row, l);
         sc = column + size;
         ver = 1;
-
-
-/*
 
         switch (random) {
           case 0:
             ver = verificalinhad(size, l, word, sc);
             break;
           case 1:
-            ver = verificalinhae(size, column, l, word, sc);
-            break;
-          case 2:
             ver = verificac(size, l, word, row);
             break;
-          case 3:
-            ver = verificab(size, l, word, row);
+          case 2:
+            ver = verificalinhae(size, column, l, word, sc);
             break;
-          case 4:
+          case 3:
             ver = verificadc(size, l, word, row, column);
             break;
-          case 5:
+          case 4:
             ver = verificadcinv(size, l, word, row, column, arr);
-            console.log(ver);
+            break;
+          case 5:
+            // ver = verificab(size, l, word, row); N�o teste..... Caso contr�rio pc para o lixo ... Em manuten��o
+            ver = 0;
             break;
           default:
             ver = 0;
             break;
         }
-*/
-
       } while (ver === 0);
       console.log(`Palavras: ${word} Linha: ${row}  Coluna: ${column}`);
     }
@@ -405,16 +405,16 @@ console.log(names);
 
 
 
- 
+
 
   // funcao para exibir nivel de dificuldade
   const funcao123 = () => {
     if (props.gridN === 8)
-    return "Fácil"  
+      return "Fácil"
     if (props.gridN === 10)
-    return "Intermédio"  
+      return "Intermédio"
     if (props.gridN === 15)
-    return "Difícil"  
+      return "Difícil"
 
   }
 
@@ -423,24 +423,282 @@ console.log(names);
     setTodaLista(listaPalavras);
     for (i = 0; i < todaLista.length; i++) {
       names.push(todaLista[i].name);
-    console.log(typeof(names));
     }
 
   }
 
+  const todasorientacoes = (v) => {
+    vaux = [];
+    console.log("valor de " + v);
+    v[0] = parseInt(v[0]);
+    v[1] = parseInt(v[1]);
+    t = v[1] - v[0];
+    console.log(t, v[1], v[0]);
+    //DIAGONAIS 
+    let confirma = 0;
+    if (t % (x + 1) === 0) {
+      if (t > 0) {
+        let doublei = 0;
+        for (let is = v[0]; is <= v[1]; is += x + 1) {
+          vaux[doublei++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        if (confirma == 1) {
+          for (let is = v[0]; is <= v[1]; is += x + 1) {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+      else {
+        let doublei = 0;
+        for (let is = v[0]; is >= v[1]; is -= x + 1) {
+          vaux[doublei++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          for (let is = v[0]; is >= v[1]; is -= x + 1) {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+    }
+    else if (t % (x - 1) === 0) {
+      if (t > 0) {
+        let doublei = 0;
+        for (let is = v[0]; is <= v[1]; is += x - 1) {
+          vaux[doublei++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          for (let is = v[0]; is <= v[1]; is += x - 1) {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+      else {
+        let doublei = 0;
+        for (let is = v[0]; is >= v[1]; is -= x + 1) {
+          vaux[doublei++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          for (let is = v[0]; is >= v[1]; is -= x + 1) {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+    }
+    //VERIFICA HORIZONTAL
+    else if (t < x && t > -x) {
+      if (t > 0) {
+        console.log("Entrou no if;");
+        let doublei = 0;
+        for (let is = v[0]; is <= v[1]; is++) {
+          vaux[doublei++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+            console.log("Entrou no confirma;");
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            console.log("Entrou no confirma;");
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          console.log("entrou");
+          for (let is = v[0]; is <= v[1]; is++) {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+      else {
+        let doublei = 0;
+        for (let is = v[0]; is >= v[1]; is--) {
+          vaux[doublei++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            console.log("Entrou no confirma;");
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            console.log("Entrou no confirma;");
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          for (let is = v[0]; is >= v[1]; is--) {
+            console.log("entrou");
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+    }
+
+
+    //VERIFICA VERTICAL 
+    //t=v[1]-v[0]
+    else if (t >= x || t >= -x) {
+      console.log("Entrou if");
+      let doublex = 0;
+      let is = v[0]
+      if (t >= x) {
+        console.log("Entrou if2");
+        for (is = v[0]; is <= v[1]; is += x) {
+          vaux[doublex++] = s[is];
+        }
+        vaux = vaux.join("");
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            console.log("Entrou if3");
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            console.log("Entrou if4");
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          console.log("Entrou confirma");
+          for (is = v[0]; is <= v[1]; is += x) {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+          }
+          return 1;
+        }
+      }
+      else {
+        doublex = 0;
+        do {
+          vaux[doublex++] = s[is];
+          is -= x;
+        } while (is > v[1]);
+        vaux = vaux.join("");
+
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        vaux = reverse(vaux);
+        for (let h = 0; h < namesAux.length; h++) {
+          if (vaux === namesAux[h]) {
+            confirma = 1;
+          }
+        }
+        if (confirma === 1) {
+          do {
+            let risca = document.getElementById(is);
+            risca.classList.add("risca");
+            is -= x;
+          } while (is > v[1]);
+        }
+      }
+    }
+
+    return 0;
+
+  }
+
+  const [pontuacao, setPontuacao] = useState('0');
+
+  function primeiroClick(event) {
+    let yuri;
+    v.push(event.target.id);
+    if (v.length === 2) {
+      yuri = todasorientacoes(v);
+      if (yuri === 1) {
+        score += 100;
+        setPontuacao(score);
+        // console.log("Pontuacao " + pontuacao);
+      }
+    }
+    if (v.length === 2) {
+      v = [];
+    }
+  }
 
   return (
     <div className="tabuleiro">
       <div className="gridWrapper">
         <div className="infoJogo">
           <h3 className="tempoJogo"> Tempo de jogo: {props.timer}</h3>
-          <h3 className="scoreJogo">Pontuação: 000</h3>
+          <h3 className="scoreJogo">Pontuação: {pontuacao}</h3>
           <h3 className="levelJogo">Nível: {funcao123()} </h3>
         </div>
         <div className={`DivGrid${x}`}>
 
           {s.map((items, key) => (
-            <div id={jr++} key={key} className="inGrid">
+            <div id={jr++} onClick={primeiroClick} key={key} className="inGrid">
               {items}{" "}
             </div>
           ))}

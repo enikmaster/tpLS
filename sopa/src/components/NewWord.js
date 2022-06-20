@@ -13,7 +13,7 @@ const NewWord = (props) => {
         if (props.tamPalavras <= 20) {
             const newData = {
                 id: props.tamPalavras+1,
-                name: addedWord,
+                name: addedWord.toUpperCase(),
             }
             props.onMimiApertaAqui(newData);
         } else {
