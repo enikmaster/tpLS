@@ -2,7 +2,6 @@ import "./css/divGrid.css";
 import { useState, useEffect } from "react";
 import ListaTopTen from "./ListaTopTen";
 import ListaWords from "./ListaWords";
-import Timer from "./Timer";
 
 let names = [];
 
@@ -386,7 +385,7 @@ const Jogar = (props) => {
             ver = verificadcinv(size, l, word, row, column, arr);
             break;
           case 5:
-            // ver = verificab(size, l, word, row); NÆo teste..... Caso contr rio pc para o lixo ... Em manuten‡Æo
+            // ver = verificab(size, l, word, row); Nï¿½o teste..... Caso contrï¿½rio pc para o lixo ... Em manutenï¿½ï¿½o
             ver = 0;
             break;
           default:
@@ -403,10 +402,6 @@ const Jogar = (props) => {
       }
     }
   }
-
-
-
-
 
   // funcao para exibir nivel de dificuldade
   const funcao123 = () => {
@@ -669,8 +664,6 @@ const Jogar = (props) => {
     return 0;
 
   }
-
-
 
   let pontos = 0;
   function primeiroClick(event) {

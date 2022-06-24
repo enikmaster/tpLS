@@ -6,34 +6,34 @@ import './css/listaWords.css';
 
 const INITIAL_WORDS = [{
     id: 1,
-    name: 'JENNA',
+    name: 'Jenna',
     },{
     id: 2,
-    name: 'JOHNNY',
+    name: 'Johny',
     },{
     id: 3,
-    name: 'ERICA',
+    name: 'Erica',
     },{
     id: 4,
-    name: 'AMY',
+    name: 'Amy',
     },{
     id: 5,
-    name: 'STEVE',
+    name: 'Steve',
     },{
     id: 6,
-    name: 'JULIA',
+    name: 'Julia',
     },{
     id: 7,
-    name: 'TONY',
+    name: 'Tony',
     },{
     id: 8,
-    name: 'ALEXIS',
+    name: 'Alexis',
     },{
     id: 9,
-    name: 'JAMES',
+    name: 'James',
     },{
     id: 10,
-    name: 'CLARA',
+    name: 'Clara',
     }
 ];
 

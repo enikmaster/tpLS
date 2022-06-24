@@ -9,15 +9,13 @@ import Timer from "./components/Timer";
 function App() {
   const [gridN, setGridN] = useState("0");
   const [gameStarted, setGameStarted] = useState(false);
-  
+    
   const onGameStart = () => {
     if (gameStarted == true) {
       setGameStarted(false)
     }
     else {setGameStarted(true)}
   }
-  
-
 
   const handleLevelChange = (level) => {
     const value = level;
@@ -61,6 +59,7 @@ function App() {
       <Header />
       <Menu onLevelChange={handleLevelChange} 
       onGameStart={onGameStart}
+      //onMostraTop={onMostraTopHandler}
       />
       <Timer 
       gameStarted = {gameStarted}

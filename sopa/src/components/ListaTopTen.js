@@ -16,7 +16,6 @@ const ListaTopTen = () => {
         {sortedScores.map((data, key) => {
           return (
             <div key={key}>
-              {" "}
               {data.name} - {data.value} points
             </div>
           );

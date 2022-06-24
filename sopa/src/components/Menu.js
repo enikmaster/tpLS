@@ -5,11 +5,12 @@ import { useState } from "react";
 import LevelSelector from "./LevelSeletor";
 import TopTen from "./TopTen";
 
-
-
 function Menu(props) {
   const [newLevel, setNewLevel] = useState(false);
 
+  // const mostraTopHandler = mostra => {
+  //   props.onMostraTop(mostra);
+  // }
     
   const selectedLevelHandler = level => {
     setNewLevel(level);
@@ -21,12 +22,10 @@ function Menu(props) {
   // const [startedGame, setStartedGame] = useState('0');
   // const [viewTop, setViewTop] = useState('0');
 
-
-
   return (
     <div className="Menu">
       <LevelSelector currentLevel={newLevel} onSelectLevel={selectedLevelHandler} />
-      <TopTen />
+      <TopTen /> { /* onMostra={mostraTopHandler} */ }
 
       <button value='0' type="button" onClick={funcaoGameStarted} className="Inicio editButt">Jogar</button>
       
