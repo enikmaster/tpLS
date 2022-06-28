@@ -13,7 +13,6 @@ const Jogar = (props) => {
   let s = [];
   let arr = [];
   let v = [];
-  let score = [];
   let vaux = [];
   let o;
   let x = props.gridN;
@@ -74,8 +73,6 @@ const Jogar = (props) => {
       }
     }
     return kil;
-
-
   }
 
   function reverse(word) {
@@ -151,9 +148,7 @@ const Jogar = (props) => {
     }
     return 0;
   }
-
   //ESCREVE VERTICAL C->B
-
   function verificac(size, l, word, row) {
     let m = l;
     let verify = 0;
@@ -273,12 +268,10 @@ const Jogar = (props) => {
       }
       else
         return 0;
-
     }
     else
       return 0;
   }
-
 
   //ESCREVE DIAGONAL CIMA PARA BAIXO PARA AMBOS LADOS
   function verificadcinv(size, l, word, row, column, arr) {
@@ -339,10 +332,7 @@ const Jogar = (props) => {
     }
     return 0;
   }
-
-
-  console.log(names);
-
+  //console.log(names);
   //serve para escolheraleatoriamente o index para cada palavra
   escolhePosicaoParaPalavra();
   function escolhePosicaoParaPalavra() {
@@ -411,7 +401,6 @@ const Jogar = (props) => {
       return "Intermédio"
     if (props.gridN === 15)
       return "Difícil"
-
   }
 
   const [todaLista, setTodaLista] = useState(names);
@@ -420,7 +409,6 @@ const Jogar = (props) => {
     for (i = 0; i < todaLista.length; i++) {
       names.push(todaLista[i].name);
     }
-
   }
 
   const todasorientacoes = (v) => {
@@ -596,8 +584,6 @@ const Jogar = (props) => {
         }
       }
     }
-
-
     //VERIFICA VERTICAL 
     //t=v[1]-v[0]
     else if (t >= x || t >= -x) {
@@ -660,9 +646,7 @@ const Jogar = (props) => {
         }
       }
     }
-
     return 0;
-
   }
 
   let pontos = 0;
